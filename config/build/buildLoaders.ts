@@ -27,6 +27,14 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 		exclude: /node_modules/
 	}
 	
+	const babelLoader = {
+		test: /\.(ts|js|tsx|jsx)$/,
+		exclude: /node_modules/,
+		use: {
+			loader: 'babel-loader'
+		}
+	}
+	
 	const cssLoaders = {
 		test: /\.s[ac]ss$/,
 		use: [
@@ -48,6 +56,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 	}
 	
 	return [
+		babelLoader,
 		typescriptLoader,
 		cssLoaders,
 		svgLoader,
