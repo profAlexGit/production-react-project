@@ -17,7 +17,7 @@ export const App: FC = () => {
 		<div className={classNames('app', {}, [theme])}>
 			<Suspense fallback='...loading'>
 				<Navbar/>
-				<div className="content-page">
+				<div className="contentPage">
 					<Sidebar/>
 					<AppRouter/>
 				</div>

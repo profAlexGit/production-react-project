@@ -7,6 +7,7 @@ module.exports = {
 		'eslint:recommended',
 		'plugin:@typescript-eslint/recommended',
 		'plugin:react/recommended',
+		'plugin:i18next/recommended'
 	],
 	'overrides': [
 		{
@@ -29,7 +30,8 @@ module.exports = {
 	'plugins': [
 		'@typescript-eslint',
 		'react',
-		'react-hooks'
+		'react-hooks',
+		'i18next'
 	],
 	'rules': {
 		'indent': [
@@ -61,6 +63,7 @@ module.exports = {
 			allowExpressions: true,
 			allowHigherOrderFunctions: true
 		}],
-		'react/react-in-jsx-scope': 'off'
+		'react/react-in-jsx-scope': 'off',
+		'i18next/no-literal-string': 'warn'
 	}
 };
