@@ -4,22 +4,22 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import './loader.scss';
 
 interface LoaderProps {
-	className?: string;
+  className?: string
 }
 
 export const Loader: FC<LoaderProps> = (props) => {
-	const {
-		className
-	} = props;
+  const {
+    className
+  } = props;
 
-	return (
-		<div
-			className={classNames('ldsEllipsis', {}, [className])}
-		>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-		</div>
-	);
+  return (
+    <div
+      className={classNames('ldsEllipsis', {}, [className])}
+    >
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  );
 };

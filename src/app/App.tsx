@@ -11,17 +11,17 @@ import { PageLoader } from 'widgets/PageLoader';
 import './styles/index.scss';
 
 export const App: FC = () => {
-	const { theme } = useTheme();
+  const { theme } = useTheme();
 
-	return (
-		<div className={classNames('app', {}, [theme])}>
-			<Suspense fallback={<PageLoader />}>
-				<Navbar/>
-				<div className="contentPage">
-					<Sidebar/>
-					<AppRouter/>
-				</div>
-			</Suspense>
-		</div>
-	);
+  return (
+    <div className={classNames('app', {}, [theme])}>
+      <Suspense fallback={<PageLoader />}>
+        <Navbar/>
+        <div className="contentPage">
+          <Sidebar/>
+          <AppRouter/>
+        </div>
+      </Suspense>
+    </div>
+  );
 };

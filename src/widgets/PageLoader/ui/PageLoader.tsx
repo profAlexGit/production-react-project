@@ -4,19 +4,19 @@ import styles from './pageLoader.module.scss';
 import { Loader } from 'shared/ui/Loader/Loader';
 
 interface PageLoaderProps {
-	className?: string;
+  className?: string
 }
 
 export const PageLoader: FC<PageLoaderProps> = (props) => {
-	const {
-		className
-	} = props;
+  const {
+    className
+  } = props;
 
-	return (
-		<div
-			className={classNames(styles.pageLoader, {}, [className])}
-		>
-			<Loader />
-		</div>
-	);
+  return (
+    <div
+      className={classNames(styles.pageLoader, {}, [className])}
+    >
+      <Loader />
+    </div>
+  );
 };

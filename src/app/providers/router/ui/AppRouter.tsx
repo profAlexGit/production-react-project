@@ -5,19 +5,19 @@ import { routeConfig } from 'shared/config/routeConfig';
 import { PageLoader } from 'widgets/PageLoader';
 
 export const AppRouter: FC = () => (
-	<Suspense fallback={<PageLoader />}>
-		<Routes>
-			{Object.values(routeConfig).map(({ element, path }) => (
-				<Route
-					key={path}
-					path={path}
-					element={(
-						<div className="pageWrapper">
-							{element}
-						</div>
-					)}
-				/>
-			))}
-		</Routes>
-	</Suspense>
+  <Suspense fallback={<PageLoader />}>
+    <Routes>
+      {Object.values(routeConfig).map(({ element, path }) => (
+        <Route
+          key={path}
+          path={path}
+          element={(
+            <div className="pageWrapper">
+              {element}
+            </div>
+          )}
+        />
+      ))}
+    </Routes>
+  </Suspense>
 );

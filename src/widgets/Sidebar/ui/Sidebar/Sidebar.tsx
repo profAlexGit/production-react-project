@@ -7,33 +7,33 @@ import { LanguageSwitcher } from 'features/LanguageSwitcher';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 
 interface SidebarProps {
-	className?: string;
+  className?: string
 }
 
 export const Sidebar: FC<SidebarProps> = (props) => {
-	const {
-		className
-	} = props;
+  const {
+    className
+  } = props;
 
-	const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
 
-	const onToggle = (): void => {
-		setCollapsed(prev => !prev);
-	};
+  const onToggle = (): void => {
+    setCollapsed(prev => !prev);
+  };
 
-	return (
-		<div className={classNames(styles.sidebar, { [styles.collapsed]: collapsed }, [className])}>
-			<Button
-				theme={ThemeButton.CLEAR}
-				onClick={onToggle}
-			>
+  return (
+    <div className={classNames(styles.sidebar, { [styles.collapsed]: collapsed }, [className])}>
+      <Button
+        theme={ThemeButton.CLEAR}
+        onClick={onToggle}
+      >
 				toggle
-			</Button>
-			<div className={styles.switchers}>
-				<ThemeSwitcher/>
-				<LanguageSwitcher className={styles.langSwitcher}/>
-			</div>
+      </Button>
+      <div className={styles.switchers}>
+        <ThemeSwitcher/>
+        <LanguageSwitcher className={styles.langSwitcher}/>
+      </div>
 
-		</div>
-	);
+    </div>
+  );
 };

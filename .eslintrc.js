@@ -1,70 +1,53 @@
 module.exports = {
-	'env': {
-		'browser': true,
-		'es2021': true,
-		'jest': true
-	},
-	'extends': [
-		'eslint:recommended',
-		'plugin:@typescript-eslint/recommended',
-		'plugin:react/recommended',
-		'plugin:i18next/recommended'
-	],
-	'overrides': [
-		{
-			'env': {
-				'node': true
-			},
-			'files': [
-				'.eslintrc.{js,cjs}'
-			],
-			'parserOptions': {
-				'sourceType': 'script'
-			}
-		}
-	],
-	'parser': '@typescript-eslint/parser',
-	'parserOptions': {
-		'ecmaVersion': 'latest',
-		'sourceType': 'module'
-	},
-	'plugins': [
-		'@typescript-eslint',
-		'react',
-		'react-hooks',
-		'i18next'
-	],
-	'rules': {
-		'indent': [
-			'error',
-			'tab'
-		],
-		'linebreak-style': [
-			'error',
-			'windows'
-		],
-		'quotes': [
-			'error',
-			'single'
-		],
-		'semi': [
-			'error',
-			'always'
-		],
-		'no-trailing-spaces': 'error',
-
-		'arrow-body-style': ['error', 'as-needed'],
-		'react-hooks/exhaustive-deps': 'error',
-		'object-curly-spacing': ['error', 'always'],
-
-		'@typescript-eslint/no-unused-vars': ['error', { 'argsIgnorePattern': '^_' }],
-		'@typescript-eslint/consistent-type-imports': 'error',
-		'@typescript-eslint/method-signature-style': ['error', 'property'],
-		'@typescript-eslint/explicit-function-return-type': ['error', {
-			allowExpressions: true,
-			allowHigherOrderFunctions: true
-		}],
-		'react/react-in-jsx-scope': 'off',
-		'i18next/no-literal-string': 'warn'
-	}
+  env: {
+    browser: true,
+    es2021: true
+  },
+  extends: [
+    'plugin:react/recommended',
+    'standard-with-typescript',
+    'plugin:import/typescript',
+    'plugin:i18next/recommended'
+  ],
+  parser: '@typescript-eslint/parser',
+  overrides: [],
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: './tsconfig.json'
+  },
+  plugins: [
+    'react',
+    'i18next'
+  ],
+  rules: {
+    'no-tabs': 'off',
+    indent: [
+      'error',
+      2
+    ],
+    'linebreak-style': [
+      'error',
+      'windows'
+    ],
+    quotes: [
+      'error',
+      'single'
+    ],
+    semi: [
+      'error',
+      'always'
+    ],
+    'no-mixed-spaces-and-tab': 'off',
+    '@typescript-eslint/triple-slash-reference': 'off',
+    '@typescript-eslint/prefer-nullish-coalescing': 'off',
+    '@typescript-eslint/strict-boolean-expressions': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/semi': 'off',
+    '@typescript-eslint/no-floating-promises': 'warn',
+    '@typescript-eslint/naming-convention': 'off',
+    '@typescript-eslint/member-delimiter-style': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'i18next/no-literal-string': 'warn'
+  }
 };
