@@ -19,6 +19,7 @@
   },
   "include": [
     "./.eslintrc.js",
+    "./config/jest/setupTests.ts",
     "./**/*"
   ],
   "ts-node": {
