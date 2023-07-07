@@ -48,6 +48,9 @@ module.exports = {
     '@typescript-eslint/naming-convention': 'off',
     '@typescript-eslint/member-delimiter-style': 'off',
     'react/react-in-jsx-scope': 'off',
-    'i18next/no-literal-string': 'warn'
+    'i18next/no-literal-string': ['warn', {
+      markupOnly: true,
+      ignoreAttributes: ['data-testid']
+    }]
   }
 };

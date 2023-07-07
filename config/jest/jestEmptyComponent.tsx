@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { type ReactNode } from 'react';
 
-const jestEmptyComponent = () => {
+const jestEmptyComponent = (): ReactNode => {
   return <div />;
 };
 
