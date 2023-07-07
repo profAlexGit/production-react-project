@@ -10,7 +10,14 @@ module.exports = {
     'plugin:i18next/recommended'
   ],
   parser: '@typescript-eslint/parser',
-  overrides: [],
+  overrides: [
+    {
+      files: ['**/src/**/*/.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off'
+      }
+    }
+  ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',

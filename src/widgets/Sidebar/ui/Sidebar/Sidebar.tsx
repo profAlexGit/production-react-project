@@ -37,7 +37,6 @@ export const Sidebar: FC<SidebarProps> = (props) => {
         <ThemeSwitcher/>
         <LanguageSwitcher className={styles.langSwitcher}/>
       </div>
-
     </div>
   );
 };
