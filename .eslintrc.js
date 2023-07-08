@@ -45,6 +45,7 @@ module.exports = {
       'error',
       'always'
     ],
+    'i18next/no-literal-string': ['warn'],
     'no-mixed-spaces-and-tab': 'off',
     '@typescript-eslint/triple-slash-reference': 'off',
     '@typescript-eslint/prefer-nullish-coalescing': 'off',
@@ -54,10 +55,6 @@ module.exports = {
     '@typescript-eslint/no-floating-promises': 'warn',
     '@typescript-eslint/naming-convention': 'off',
     '@typescript-eslint/member-delimiter-style': 'off',
-    'react/react-in-jsx-scope': 'off',
-    'i18next/no-literal-string': ['warn', {
-      markupOnly: true,
-      ignoreAttributes: ['data-testid']
-    }]
+    'react/react-in-jsx-scope': 'off'
   }
 };

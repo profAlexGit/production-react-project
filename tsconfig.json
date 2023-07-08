@@ -20,7 +20,7 @@
   "include": [
     "./.eslintrc.js",
     "./config/jest/setupTests.ts",
-    "./**/*"
+    "./src/**/*.tsx?"
   ],
   "ts-node": {
     "compilerOptions": {
