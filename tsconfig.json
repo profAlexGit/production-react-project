@@ -18,10 +18,9 @@
     }
   },
   "include": [
-    "./.eslintrc.js",
-    "./config/jest/setupTests.ts",
-    "./src/**/*.tsx?"
+    "./**/*"
   ],
+  "exclude": ["node_modules", "coverage", "public"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
