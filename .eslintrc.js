@@ -3,48 +3,26 @@ module.exports = {
     browser: true,
     es2021: true
   },
-  extends: [
-    'plugin:react/recommended',
-    'standard-with-typescript',
-    'plugin:import/typescript',
-    'plugin:i18next/recommended'
-  ],
+  extends: ['plugin:react/recommended', 'standard-with-typescript', 'plugin:import/typescript', 'plugin:i18next/recommended', 'plugin:storybook/recommended'],
   parser: '@typescript-eslint/parser',
-  overrides: [
-    {
-      files: ['**/src/**/*/.test.{ts,tsx}'],
-      rules: {
-        'i18next/no-literal-string': 'off'
-      }
+  overrides: [{
+    files: ['**/src/**/*/.test.{ts,tsx}'],
+    rules: {
+      'i18next/no-literal-string': 'off'
     }
-  ],
+  }],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
     project: './tsconfig.json'
   },
-  plugins: [
-    'react',
-    'i18next'
-  ],
+  plugins: ['react', 'i18next'],
   rules: {
     'no-tabs': 'off',
-    indent: [
-      'error',
-      2
-    ],
-    'linebreak-style': [
-      'error',
-      'windows'
-    ],
-    quotes: [
-      'error',
-      'single'
-    ],
-    semi: [
-      'error',
-      'always'
-    ],
+    indent: ['error', 2],
+    'linebreak-style': ['error', 'windows'],
+    quotes: ['error', 'single'],
+    semi: ['error', 'always'],
     'i18next/no-literal-string': ['warn'],
     'no-mixed-spaces-and-tab': 'off',
     '@typescript-eslint/triple-slash-reference': 'off',
@@ -55,6 +33,8 @@ module.exports = {
     '@typescript-eslint/no-floating-promises': 'warn',
     '@typescript-eslint/naming-convention': 'off',
     '@typescript-eslint/member-delimiter-style': 'off',
-    'react/react-in-jsx-scope': 'off'
+    '@typescript-eslint/prefer-includes': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/display-name': 'off'
   }
 };
