@@ -6,22 +6,22 @@ import DarkIcon from 'shared/assets/icons/theme-dark.svg';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 
 interface ThemeSwitcherProps {
-	className?: string;
+  className?: string
 }
 
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
-	const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
-	return (
-		<Button
-			className={classNames('', {}, [className])}
-			theme={ThemeButton.CLEAR}
-			onClick={toggleTheme}
-		>
-			{theme === Theme.LIGHT
-				? <LightIcon/>
-				: <DarkIcon/>
-			}
-		</Button>
-	);
+  return (
+    <Button
+      className={classNames('', {}, [className || ''])}
+      theme={ThemeButton.CLEAR}
+      onClick={toggleTheme}
+    >
+      {theme === Theme.LIGHT
+        ? <LightIcon/>
+        : <DarkIcon/>
+      }
+    </Button>
+  );
 };
