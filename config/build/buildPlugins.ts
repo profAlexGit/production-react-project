@@ -6,7 +6,7 @@ import type { BuildOptions } from '../types/config';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
 export function buildPlugins ({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
-  return [
+  const plugins = [
     new HTMLWebpackPlugin({
       template: paths.html
     }),
@@ -18,10 +18,18 @@ export function buildPlugins ({ paths, isDev }: BuildOptions): webpack.WebpackPl
     new webpack.DefinePlugin({
       __IS_DEV__: isDev
     }),
-    new ReactRefreshWebpackPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false
-    })
+    new ReactRefreshWebpackPlugin()
   ];
+
+  if (isDev) {
+    return [
+      ...plugins,
+      new webpack.HotModuleReplacementPlugin(),
+      new BundleAnalyzerPlugin({
+        openAnalyzer: false
+      })
+    ];
+  }
+
+  return plugins;
 }
