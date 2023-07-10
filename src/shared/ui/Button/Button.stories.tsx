@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button, ThemeButton } from './Button';
+import { Button, SizeButton, ThemeButton } from './Button';
 import { ThemeDecorator } from 'shared/config/storybookDecorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 
@@ -8,7 +8,11 @@ const meta: Meta<typeof Button> = {
   title: 'shared/Button',
   component: Button,
   args: {
-    children: 'Button'
+    children: 'Button',
+    size: SizeButton.M
+  },
+  argTypes: {
+    size: SizeButton
   }
 };
 
@@ -51,5 +55,60 @@ export const OutlineDark: Story = {
   ],
   args: {
     theme: ThemeButton.OUTLINE
+  }
+};
+
+export const BackgroundTheme: Story = {
+  args: {
+    theme: ThemeButton.BACKGROUND
+  }
+};
+
+export const BackgroundThemeDark: Story = {
+  decorators: [
+    ThemeDecorator(Theme.DARK)
+  ],
+  args: {
+    theme: ThemeButton.BACKGROUND
+  }
+};
+
+export const BackgroundInvertedTheme: Story = {
+  args: {
+    theme: ThemeButton.BACKGROUND_INVERTED
+  }
+};
+
+export const BackgroundInvertedThemeDark: Story = {
+  decorators: [
+    ThemeDecorator(Theme.DARK)
+  ],
+  args: {
+    theme: ThemeButton.BACKGROUND_INVERTED
+  }
+};
+
+export const SquareButton: Story = {
+  argTypes: {
+    size: SizeButton
+  },
+  args: {
+    square: true,
+    size: SizeButton.M,
+    children: '>'
+  }
+};
+
+export const SquareDarkButton: Story = {
+  decorators: [
+    ThemeDecorator(Theme.DARK)
+  ],
+  argTypes: {
+    size: SizeButton
+  },
+  args: {
+    square: true,
+    size: SizeButton.M,
+    children: '>'
   }
 };
