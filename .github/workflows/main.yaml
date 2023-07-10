@@ -32,9 +32,8 @@ jobs:
       - name: build storybook
         if: always()
         run: npm run storybook:build
+      - name: build
+        run: npm run build:prod
       - name: screenshots tests
         run: npm run test:ui:ci
-      - name: build
-        if: ${{ always() }}
-        needs: [lint scripts, lint styles, unit tests]
-        run: npm run build:prod
+
