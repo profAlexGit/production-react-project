@@ -31,7 +31,7 @@ jobs:
         run: npm run test:unit
       - name: build storybook
         if: always()
-        run: npm run storybook:build
+        run: npm run storybook:build && npx http-server storybook-static --port 6006 --silent && npx wait-on tcp:6006
       - name: build
         run: npm run build:prod
       - name: screenshots tests
