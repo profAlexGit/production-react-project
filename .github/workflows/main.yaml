@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [main]
 jobs:
-  pipeline:
+  install_dependencies:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -15,25 +15,50 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Staring Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
       - name: npm settings
         run: npm config set legacy-peer-deps true
       - name: install modules
         run: npm install
+  linting:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18.x ]
+    steps:
       - name: lint scripts
         run: npm run lint:ts:fix
       - name: lint styles
         run: npm run lint:ts:fix
+  storybook:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18.x ]
+    steps:
+      - name: build storybook
+        if: always()
+        run: npm run storybook:build
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18.x ]
+    steps:
       - name: unit tests
         if: always()
         run: npm run test:unit
-      - name: build storybook
-        if: always()
-        run: npm run storybook:build && npx http-server storybook-static --port 6006 --silent
-      - name: build
-        run: npm run build:prod
       - name: screenshots tests
         run: npm run test:ui:ci
+  build:
+    needs: [  install_dependencies,   linting,   tests]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18.x ]
+    steps:
+      - name: build
+        run: npm run build:prod
 
