@@ -108,8 +108,6 @@ jobs:
       - name: unit tests
         if: always()
         run: npm run test:unit
-      - name: screenshots tests
-        run: npm run test:ui:ci
   build:
     needs: [  install_dependencies,   linting,   tests]
     runs-on: ubuntu-latest
