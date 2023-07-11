@@ -3,3 +3,4 @@ build
 .idea
 ./coverage
 /node_modules/
+/storybook-static/
