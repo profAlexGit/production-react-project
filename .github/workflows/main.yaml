@@ -23,6 +23,7 @@ jobs:
       - name: install modules
         run: npm install
   linting:
+    needs: [  install_dependencies ]
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -38,6 +39,7 @@ jobs:
       - name: lint styles
         run: npm run lint:ts:fix
   storybook:
+    needs: [  install_dependencies ]
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -52,6 +54,7 @@ jobs:
         if: always()
         run: npm run storybook:build
   tests:
+    needs: [  install_dependencies ]
     runs-on: ubuntu-latest
     strategy:
       matrix:
