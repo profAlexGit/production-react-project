@@ -28,7 +28,8 @@ const config: Config = {
     'node_modules'
   ],
   modulePaths: [
-    '<rootDir>src'
+    '<rootDir>src',
+    '<rootDir>src/entities'
   ],
   moduleFileExtensions: [
     'js',
@@ -47,7 +48,16 @@ const config: Config = {
   ],
   moduleNameMapper: {
     '\\.(s?css)$': 'identity-obj-proxy',
-    '\\.svg$': path.resolve(__dirname, 'jestEmptyComponent.tsx')
+    '\\.svg$': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    '^@app/(.*)': '<rootDir>/src/app/$1',
+    '^@pages/(.*)': '<rootDir>/src/pages/$1',
+    '^@widgets/(.*)': '<rootDir>/src/widgets/$1',
+    '^@features/(.*)': '<rootDir>/src/features/$1',
+    '^@entities/(.*)': '<rootDir>/src/entities/$1',
+    '^@shared/(.*)': '<rootDir>/src/shared/$1'
+  },
+  globals: {
+    __IS_DEV__: true
   }
 };
 

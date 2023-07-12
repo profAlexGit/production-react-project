@@ -1,7 +1,7 @@
 import type { FC } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button, ThemeButton } from '@shared/ui/Button/Button';
 
 interface LanguageSwitcherProps {
   className?: string;

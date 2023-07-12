@@ -4,6 +4,7 @@ import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import type { BuildOptions } from '../types/config';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+// import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 
 export function buildPlugins ({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
   const plugins = [
@@ -19,6 +20,7 @@ export function buildPlugins ({ paths, isDev }: BuildOptions): webpack.WebpackPl
       __IS_DEV__: isDev
     }),
     new ReactRefreshWebpackPlugin()
+    // new TsconfigPathsPlugin()
   ];
 
   if (isDev) {

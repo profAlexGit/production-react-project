@@ -1,13 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1688984855823" clover="3.2.0">
-  <project timestamp="1688984855823" name="All files">
-    <metrics statements="64" coveredstatements="49" conditionals="23" coveredconditionals="14" methods="25" coveredmethods="14" elements="112" coveredelements="77" complexity="0" loc="64" ncloc="64" packages="22" files="23" classes="23"/>
+<coverage generated="1689162055061" clover="3.2.0">
+  <project timestamp="1689162055061" name="All files">
+    <metrics statements="85" coveredstatements="70" conditionals="23" coveredconditionals="15" methods="34" coveredmethods="23" elements="142" coveredelements="108" complexity="0" loc="85" ncloc="85" packages="30" files="31" classes="31"/>
     <package name="config.jest">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="jestEmptyComponent.tsx" path="C:\Users\staro\Desktop\react production\config\jest\jestEmptyComponent.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="9" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.app.providers.StoreProvider">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="C:\Users\staro\Desktop\react production\src\app\providers\StoreProvider\index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="src.app.providers.StoreProvider.config">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="store.ts" path="C:\Users\staro\Desktop\react production\src\app\providers\StoreProvider\config\store.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.app.providers.StoreProvider.ui">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="StoreProvider.tsx" path="C:\Users\staro\Desktop\react production\src\app\providers\StoreProvider\ui\StoreProvider.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
+        <line num="19" count="6" type="stmt"/>
       </file>
     </package>
     <package name="src.app.providers.ThemeProvider">
@@ -43,6 +66,52 @@
         <line num="8" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.entities.Counter">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="C:\Users\staro\Desktop\react production\src\entities\Counter\index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="src.entities.Counter.model.selectors.getCounter">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="getCounter.ts" path="C:\Users\staro\Desktop\react production\src\entities\Counter\model\selectors\getCounter\getCounter.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="8" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.entities.Counter.model.selectors.getCounterValue">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="getCounterValue.ts" path="C:\Users\staro\Desktop\react production\src\entities\Counter\model\selectors\getCounterValue\getCounterValue.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="7" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.entities.Counter.model.slice">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="counterSlice.ts" path="C:\Users\staro\Desktop\react production\src\entities\Counter\model\slice\counterSlice.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.entities.Counter.ui">
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <file name="Counter.tsx" path="C:\Users\staro\Desktop\react production\src\entities\Counter\ui\Counter.tsx">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="18" count="6" type="stmt"/>
+        <line num="19" count="6" type="stmt"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="25" count="6" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="29" count="6" type="stmt"/>
       </file>
     </package>
     <package name="src.features.LanguageSwitcher">
@@ -137,24 +206,24 @@
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="i18nForTest.ts" path="C:\Users\staro\Desktop\react production\src\shared\config\i18n\i18nForTest.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.shared.lib.classNames">
       <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
       <file name="classNames.ts" path="C:\Users\staro\Desktop\react production\src\shared\lib\classNames\classNames.ts">
         <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
-        <line num="4" count="35" type="stmt"/>
-        <line num="8" count="23" type="stmt"/>
+        <line num="4" count="53" type="stmt"/>
+        <line num="8" count="35" type="stmt"/>
         <line num="9" count="6" type="stmt"/>
       </file>
     </package>
     <package name="src.shared.lib.tests.componentRender">
-      <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="componentRender.tsx" path="C:\Users\staro\Desktop\react production\src\shared\lib\tests\componentRender\componentRender.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
+        <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="18" count="6" type="stmt"/>
+        <line num="20" count="6" type="stmt"/>
       </file>
     </package>
     <package name="src.shared.ui.AppLink">
@@ -170,16 +239,16 @@
       <metrics statements="10" coveredstatements="10" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
       <file name="Button.tsx" path="C:\Users\staro\Desktop\react production\src\shared\ui\Button\Button.tsx">
         <metrics statements="10" coveredstatements="10" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
-        <line num="25" count="2" type="stmt"/>
-        <line num="33" count="16" type="stmt"/>
-        <line num="35" count="16" type="stmt"/>
-        <line num="36" count="16" type="stmt"/>
-        <line num="37" count="16" type="stmt"/>
-        <line num="41" count="16" type="stmt"/>
-        <line num="43" count="16" type="cond" truecount="2" falsecount="0"/>
-        <line num="44" count="12" type="stmt"/>
-        <line num="47" count="16" type="stmt"/>
-        <line num="50" count="16" type="stmt"/>
+        <line num="26" count="3" type="stmt"/>
+        <line num="34" count="28" type="stmt"/>
+        <line num="36" count="28" type="stmt"/>
+        <line num="37" count="28" type="stmt"/>
+        <line num="38" count="28" type="stmt"/>
+        <line num="42" count="28" type="stmt"/>
+        <line num="44" count="28" type="cond" truecount="2" falsecount="0"/>
+        <line num="45" count="12" type="stmt"/>
+        <line num="48" count="28" type="stmt"/>
+        <line num="51" count="28" type="stmt"/>
       </file>
     </package>
     <package name="src.widgets.Sidebar">

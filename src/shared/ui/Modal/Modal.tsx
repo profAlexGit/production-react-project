@@ -1,7 +1,7 @@
 import { type FC, type ReactNode, type MouseEvent, useRef, useState, useEffect, useCallback } from 'react';
 import styles from './modal.module.scss';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Portal } from 'shared/ui/Portal/Portal';
+import { classNames } from '@shared/lib/classNames/classNames';
+import { Portal } from '@shared/ui/Portal/Portal';
 
 interface ModalProps {
   className?: string;

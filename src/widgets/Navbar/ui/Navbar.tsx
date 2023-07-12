@@ -1,10 +1,10 @@
 import type { FC } from 'react';
 import { useState, useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@shared/lib/classNames/classNames';
 import styles from './navbar.module.scss';
-import { Modal } from 'shared/ui/Modal/Modal';
+import { Modal } from '@shared/ui/Modal/Modal';
 import { useTranslation } from 'react-i18next';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button, ThemeButton } from '@shared/ui/Button/Button';
 
 interface NavbarProps {
   className?: string
