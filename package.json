@@ -21,7 +21,7 @@
     "lint:style:fix": "npx stylelint \"**/*.scss\" --fix",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
-    "test:pipe": "npx http-server storybook-static --port 6006 --silent && npm run test:ui"
+    "test:pipe": "concurrently -s first -k \"npm run storybook\" \"npm run test:ui\" \"deelay\""
   },
   "keywords": [],
   "author": "",
@@ -55,7 +55,9 @@
     "@typescript-eslint/eslint-plugin": "^5.61.0",
     "@typescript-eslint/parser": "^5.61.0",
     "babel-loader": "^9.1.2",
+    "concurrently": "^8.2.0",
     "css-loader": "^6.8.1",
+    "deelay": "^2.0.0",
     "eslint": "8.22.0",
     "eslint-config-standard-with-typescript": "^36.0.0",
     "eslint-plugin-i18next": "^6.0.3",
@@ -104,14 +106,14 @@
   "loki": {
     "configurations": {
       "chrome.laptop": {
-        "target": "chrome.app",
+        "target": "chrome.docker",
         "width": 1366,
         "height": 768,
         "deviceScaleFactor": 1,
         "mobile": false
       },
       "chrome.iphone7": {
-        "target": "chrome.app",
+        "target": "chrome.docker",
         "preset": "iPhone 7"
       }
     }

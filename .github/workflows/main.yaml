@@ -79,9 +79,6 @@ jobs:
         run: npm config set legacy-peer-deps true
       - name: install modules
         run: npm install
-      - name: build storybook
-        if: always()
-        run: npm run storybook:build
   tests:
     needs: [  install_dependencies ]
     runs-on: ubuntu-latest
@@ -108,6 +105,33 @@ jobs:
       - name: unit tests
         if: always()
         run: npm run test:unit
+  screenshots test:
+    needs: [ install_dependencies ]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18.x ]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Staring Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          # A list of files, directories, and wildcard patterns to cache and restore
+          path: ~/.npm
+          # An explicit key for restoring and saving the cache
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
+      - name: npm settings
+        run: npm config set legacy-peer-deps true
+      - name: install modules
+        run: npm install
+      - name: build storybook
+        run: npm run storybook:build
+      - name: build storybook
+        run: npm run test:ui:ci
   build:
     needs: [  install_dependencies,   linting,   tests]
     runs-on: ubuntu-latest
