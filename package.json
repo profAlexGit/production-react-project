@@ -20,7 +20,8 @@
     "lint:style": "npx stylelint \"**/*.scss\"",
     "lint:style:fix": "npx stylelint \"**/*.scss\" --fix",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "storybook:build": "storybook build -c ./config/storybook"
+    "storybook:build": "storybook build -c ./config/storybook",
+    "start:server": "node ./json-server/index.js"
   },
   "keywords": [],
   "author": "",
@@ -72,6 +73,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.6.0",
     "jest-environment-jsdom": "^29.6.0",
+    "json-server": "^0.17.3",
     "loki": "^0.32.0",
     "mini-css-extract-plugin": "^2.7.6",
     "react-refresh": "^0.14.0",
