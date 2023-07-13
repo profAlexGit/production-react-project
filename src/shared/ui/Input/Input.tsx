@@ -1,6 +1,5 @@
 import {
   type ChangeEvent,
-  type FC,
   type InputHTMLAttributes,
   memo,
   type MutableRefObject,
