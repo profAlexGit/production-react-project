@@ -1,5 +1,4 @@
 import { type FC } from 'react';
-import styles from './counter.module.scss';
 import { classNames } from '@shared/lib/classNames/classNames';
 import { Button } from '@shared/ui/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
@@ -29,7 +28,7 @@ export const Counter: FC<CounterProps> = (props) => {
   return (
     <div
       data-testid='counter'
-      className={classNames(styles.counter, {}, [className])}
+      className={classNames('', {}, [className])}
     >
       <h1 data-testid='value'>{counterValue}</h1>
       <Button

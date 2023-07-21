@@ -61,7 +61,7 @@ export const Input = memo((props: InputProps) => {
       className={classNames(styles.inputWrapper, {}, [className])}
     >
       {placeholder && (
-        <div className={styles.placeholder}>
+        <div>
           {`${placeholder}>`}
         </div>
       )}
