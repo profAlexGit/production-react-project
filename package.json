@@ -21,7 +21,8 @@
     "lint:style:fix": "npx stylelint \"**/*.scss\" --fix",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
-    "start:server": "node ./json-server/index.js"
+    "start:server": "node ./json-server/index.js",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
@@ -94,7 +95,8 @@
     "webpack": "^5.88.1",
     "webpack-bundle-analyzer": "^4.9.0",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-dev-server": "^4.15.1",
+    "husky": "^8.0.0"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
