@@ -1,4 +1,5 @@
 import type { Configuration, RuleSetRule } from 'webpack';
+import { DefinePlugin } from 'webpack';
 import { type BuildPaths } from '../types/config';
 import path from 'path';
 import { buildCssLoaders } from '../build/loaders/buildCssLoaders';
@@ -67,6 +68,10 @@ export default ({ config }: { config: Configuration }): Configuration => {
   });
 
   config.module.rules.push(buildCssLoaders(true));
+
+  config?.plugins?.push(new DefinePlugin({
+    __IS_DEV__: true
+  }));
 
   return config;
 };

@@ -127,3 +127,10 @@ export const SquareDarkButton: Story = {
     children: '>'
   }
 };
+
+export const DisabledPrimary: Story = {
+  name: 'primary disabled',
+  args: {
+    disabled: true
+  }
+};
