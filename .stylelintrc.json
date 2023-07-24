@@ -8,6 +8,7 @@
     "declaration-block-no-duplicate-properties": true,
     "block-no-empty": true,
     "declaration-no-important": true,
-    "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$"
+    "selector-class-pattern": null,
+    "rule-empty-line-before": null
   }
 }

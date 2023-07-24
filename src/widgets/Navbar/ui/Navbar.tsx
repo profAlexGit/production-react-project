@@ -1,34 +1,62 @@
 import type { FC } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { useState, useCallback } from 'react';
+import { classNames } from '@shared/lib/classNames/classNames';
 import styles from './navbar.module.scss';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { useTranslation } from 'react-i18next';
+import { Button, ThemeButton } from '@shared/ui/Button/Button';
+import { LoginModal } from '@features/AuthByUsername';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserAuthData, userActions } from '@entities/User';
 
 interface NavbarProps {
   className?: string
 }
 
 export const Navbar: FC<NavbarProps> = ({ className }) => {
-  const { t } = useTranslation('navigation');
+  const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const [isAuthModal, setIsAuthModal] = useState(false);
+  const authData = useSelector(getUserAuthData);
+
+  const onCloseModal = useCallback(() => {
+    setIsAuthModal(false);
+  }, []);
+
+  const onShowModal = useCallback(() => {
+    setIsAuthModal(true);
+  }, []);
+
+  const onLogout = (): void => {
+    dispatch(userActions.logout());
+  };
+
+  if (authData) {
+    return (
+      <div className={classNames(styles.navbar, {}, [className])}>
+        <Button
+          theme={ThemeButton.CLEAR_INVERTED}
+          className={styles.links}
+          onClick={onLogout}
+        >
+          {t('Выйти')}
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <div className={classNames(styles.navbar, {}, [className])}>
-      <div className={styles.links}>
-        <AppLink
-          to='/'
-          className={styles.mainLink}
-          theme={AppLinkTheme.SECONDARY}
-        >
-          {t('Главная')}
-        </AppLink>
-        <AppLink
-          to='/about'
-          className={styles.mainLink}
-          theme={AppLinkTheme.SECONDARY}
-        >
-          {t('О нас')}
-        </AppLink>
-      </div>
+      <Button
+        theme={ThemeButton.CLEAR_INVERTED}
+        className={styles.links}
+        onClick={onShowModal }
+      >
+        {t('Войти')}
+      </Button>
+      <LoginModal
+        isOpen={isAuthModal}
+        onClose={onCloseModal}
+      />
     </div>
   );
 };

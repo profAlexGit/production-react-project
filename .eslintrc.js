@@ -16,7 +16,7 @@ module.exports = {
     sourceType: 'module',
     project: './tsconfig.json'
   },
-  plugins: ['react', 'i18next'],
+  plugins: ['react', 'i18next', 'react-hooks'],
   rules: {
     'no-tabs': 'off',
     indent: ['error', 2],
@@ -34,7 +34,14 @@ module.exports = {
     '@typescript-eslint/naming-convention': 'off',
     '@typescript-eslint/member-delimiter-style': 'off',
     '@typescript-eslint/prefer-includes': 'off',
+    '@typescript-eslint/no-unnecessary-type-assertion': 'off',
+    '@typescript-eslint/restrict-template-expressions': 'off',
+    '@typescript-eslint/dot-notation': 'off',
+    '@typescript-eslint/restrict-plus-operands': 'off',
+    'import/no-absolute-path': 'off',
     'react/react-in-jsx-scope': 'off',
-    'react/display-name': 'off'
+    'react/display-name': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn'
   }
 };

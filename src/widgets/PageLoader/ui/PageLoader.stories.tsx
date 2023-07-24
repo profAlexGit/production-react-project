@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybookDecorators/ThemeDecorator';
+import { Theme } from '@app/providers/ThemeProvider';
+import { ThemeDecorator } from '@shared/config/storybookDecorators/ThemeDecorator';
 import { PageLoader } from './PageLoader';
-import { RouteDecorator } from 'shared/config/storybookDecorators/RouteDecorator';
+import { RouteDecorator } from '@shared/config/storybookDecorators/RouteDecorator';
 
 const meta: Meta<typeof PageLoader> = {
   title: 'shared/PageLoader',

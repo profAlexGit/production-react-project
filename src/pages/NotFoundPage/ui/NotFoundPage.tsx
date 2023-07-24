@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import styles from './notFoundPage.module.scss';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 
 interface NotFoundPageProps {
