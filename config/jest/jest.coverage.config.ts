@@ -18,7 +18,7 @@ const config: Config = {
 
   // Automatically clear mock calls, instances, contexts and results before every test
   clearMocks: true,
-  collectCoverage: false,
+  collectCoverage: true,
   coverageDirectory: 'coverage',
   testEnvironment: 'jsdom',
   coveragePathIgnorePatterns: [
