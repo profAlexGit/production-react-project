@@ -1,2 +1,9 @@
+stages:
+  - build
+  - test
+  - deploy
+
+
 install dependencies:
+  stage: build
   script: npm ci
