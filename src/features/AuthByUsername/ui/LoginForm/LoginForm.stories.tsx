@@ -8,7 +8,8 @@ import { type StateSchema } from '@app/providers/StoreProvider';
 const initialState: DeepPartial<StateSchema> = {
   loginForm: {
     username: '',
-    password: ''
+    password: '',
+    isLoading: false
   }
 };
 
@@ -24,6 +25,7 @@ const errorState: DeepPartial<StateSchema> = {
   loginForm: {
     username: 'name',
     password: 'password',
+    isLoading: false,
     error: 'Какая-то ошибка'
   }
 };

@@ -20,7 +20,6 @@ export function buildPlugins ({ paths, isDev }: BuildOptions): webpack.WebpackPl
       __IS_DEV__: isDev
     }),
     new ReactRefreshWebpackPlugin()
-    // new TsconfigPathsPlugin()
   ];
 
   if (isDev) {
@@ -28,7 +27,8 @@ export function buildPlugins ({ paths, isDev }: BuildOptions): webpack.WebpackPl
       ...plugins,
       new webpack.HotModuleReplacementPlugin(),
       new BundleAnalyzerPlugin({
-        openAnalyzer: false
+        openAnalyzer: false,
+        analyzerPort: 8080
       })
     ];
   }
