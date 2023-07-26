@@ -1,32 +1,36 @@
-import type { FC } from 'react';
-import { useState } from 'react';
+import { useState, useMemo, memo } from 'react';
 import styles from './Sidebar.module.scss';
 import { classNames } from '@shared/lib/classNames/classNames';
 import { ThemeSwitcher } from '@features/ThemeSwitcher';
 import { LanguageSwitcher } from '@features/LanguageSwitcher';
 import { Button, SizeButton, ThemeButton } from '@shared/ui/Button/Button';
-import { AppLink, AppLinkTheme } from '@shared/ui/AppLink/AppLink';
-import { useTranslation } from 'react-i18next';
-import { RoutePath } from '@shared/config/routeConfig';
-import AboutIcon from '@shared/assets/icons/about-20-20.svg';
-import MainIcon from '@shared/assets/icons/main-20-20.svg';
+import { SidebarItemsList } from '@widgets/Sidebar/model/items';
+import { SidebarItem } from '@widgets/Sidebar/ui/Sidebar/SidebarItem/SidebarItem';
 
 interface SidebarProps {
   className?: string
 }
 
-export const Sidebar: FC<SidebarProps> = (props) => {
+export const Sidebar = memo((props: SidebarProps) => {
   const {
     className
   } = props;
-
-  const { t } = useTranslation('navigation');
 
   const [collapsed, setCollapsed] = useState(false);
 
   const onToggle = (): void => {
     setCollapsed(prev => !prev);
   };
+
+  const itemsList = useMemo(() => {
+    return SidebarItemsList.map((item) => (
+      <SidebarItem
+        key={item.path}
+        item={item}
+        collapsed={collapsed}
+      />
+    ));
+  }, [collapsed]);
 
   return (
     <div
@@ -45,26 +49,7 @@ export const Sidebar: FC<SidebarProps> = (props) => {
       </Button>
 
       <div className={styles.items}>
-        <AppLink
-          to={RoutePath.main}
-          theme={AppLinkTheme.SECONDARY}
-          className={styles.item}
-        >
-          <MainIcon className={styles.icon}/>
-          <span className={styles.link}>
-            {t('Главная')}
-          </span>
-        </AppLink>
-        <AppLink
-          to={RoutePath.about}
-          theme={AppLinkTheme.SECONDARY}
-          className={styles.item}
-        >
-          <AboutIcon className={styles.icon}/>
-          <span className={styles.link}>
-            {t('О нас')}
-          </span>
-        </AppLink>
+        {itemsList}
       </div>
 
       <div className={styles.switchers}>
@@ -76,4 +61,4 @@ export const Sidebar: FC<SidebarProps> = (props) => {
       </div>
     </div>
   );
-};
+});
