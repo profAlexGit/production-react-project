@@ -70,7 +70,8 @@ export default ({ config }: { config: Configuration }): Configuration => {
   config.module.rules.push(buildCssLoaders(true));
 
   config?.plugins?.push(new DefinePlugin({
-    __IS_DEV__: true
+    __IS_DEV__: true,
+    __API__: JSON.stringify('api')
   }));
 
   return config;

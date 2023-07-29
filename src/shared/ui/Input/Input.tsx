@@ -75,6 +75,7 @@ export const Input = memo((props: InputProps) => {
           onBlur={onBlur}
           onFocus={onFocus}
           onSelect={onSelect}
+          value={value}
           {...rest}
         />
 

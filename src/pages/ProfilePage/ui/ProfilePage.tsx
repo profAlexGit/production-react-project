@@ -1,19 +1,28 @@
-import { type FC } from 'react';
-import { useTranslation } from 'react-i18next';
+import { type FC, useEffect } from 'react';
 import { DynamicModuleLoader, type ReducersList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { profileReducer } from '@entities/Profile';
+import { getProfileIsLoading, ProfileCard, profileReducer } from '@entities/Profile';
+import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { useSelector } from 'react-redux';
+import { Loader } from '@shared/ui/Loader/Loader';
 
 const initialReducers: ReducersList = {
   profile: profileReducer
 };
 
 export const ProfilePage: FC = (props) => {
-  const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+  const profileIsLoading = useSelector(getProfileIsLoading);
+
+  useEffect(() => {
+    // dispatch(fetchProfileData());
+  }, [dispatch]);
 
   return (
     <DynamicModuleLoader reducers={initialReducers}>
+      {profileIsLoading && <Loader />}
+
       <div>
-        {t('Профиль', { ns: 'navigation' })}
+        <ProfileCard />
       </div>
     </DynamicModuleLoader>
 

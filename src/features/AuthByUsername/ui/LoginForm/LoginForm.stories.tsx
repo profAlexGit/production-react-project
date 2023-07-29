@@ -4,6 +4,9 @@ import { LoginForm } from './LoginForm';
 import { StoreDecorator } from '@shared/config/storybookDecorators/StoreDecorator';
 import { type DeepPartial } from 'redux';
 import { type StateSchema } from '@app/providers/StoreProvider';
+import { RouteDecorator } from '@shared/config/storybookDecorators/RouteDecorator';
+
+console.log('decorator: ', StoreDecorator);
 
 const initialState: DeepPartial<StateSchema> = {
   loginForm: {
@@ -33,7 +36,7 @@ const errorState: DeepPartial<StateSchema> = {
 const meta: Meta<typeof LoginForm> = {
   title: 'features/LoginForm',
   component: LoginForm,
-  decorators: [StoreDecorator(initialState)]
+  decorators: [StoreDecorator(initialState), RouteDecorator]
 };
 
 export default meta;

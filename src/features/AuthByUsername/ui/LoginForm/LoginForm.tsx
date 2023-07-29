@@ -14,6 +14,7 @@ import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLo
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { DynamicModuleLoader, type ReducersList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { useNavigate } from 'react-router';
 
 interface LoginFormProps {
   className?: string;
@@ -32,6 +33,7 @@ export const LoginForm = memo((props: LoginFormProps) => {
 
   const { t } = useTranslation('loginForm');
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
@@ -50,6 +52,7 @@ export const LoginForm = memo((props: LoginFormProps) => {
     const result = await dispatch(loginByUsername({ username, password }));
     if (result.meta.requestStatus === 'fulfilled') {
       onSuccess();
+      navigate('/profile');
     }
   }, [dispatch, onSuccess, password, username]);
 
@@ -64,7 +67,7 @@ export const LoginForm = memo((props: LoginFormProps) => {
         {error && (
           <Text
             theme={TextTheme.ERROR}
-            text={error}
+            text={t(error, { ns: 'loginForm' })}
           />
         )}
         <Input

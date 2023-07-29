@@ -13,7 +13,9 @@ export const BugButton: FC<BugButtonProps> = (props) => {
 
   const [error, setError] = useState(false);
 
-  const throwError = (): void => { setError(true); };
+  const throwError = (): void => {
+    setError(true);
+  };
 
   useEffect(() => {
     if (error) {

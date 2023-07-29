@@ -57,7 +57,8 @@ const config: Config = {
     '^@shared/(.*)': '<rootDir>/src/shared/$1'
   },
   globals: {
-    __IS_DEV__: true
+    __IS_DEV__: true,
+    __API__: ''
   }
 };
 
