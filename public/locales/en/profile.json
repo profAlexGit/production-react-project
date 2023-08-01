@@ -3,5 +3,9 @@
 	"Профиль": "Profile",
 	"Редактировать": "Edit",
 	"Ваше имя": "your name",
-	"Ваша фамилия": "Your last name"
+	"Ваша фамилия": "Your last name",
+	"Ваш возраст": "Your age",
+	"Город": "City",
+	"username": "username",
+	"аватар": "avatar"
 }

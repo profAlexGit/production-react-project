@@ -1,4 +1,5 @@
-import { type Country, type Currency } from '@shared/const/common';
+import { type Currency } from '@entities/Currency';
+import { type Country } from '@entities/Country/model/types/country';
 
 export interface Profile {
   firstName: string;
@@ -13,6 +14,7 @@ export interface Profile {
 
 export interface ProfileSchema {
   data?: Profile,
+  form?: Profile,
   isLoading: boolean;
   error?: string;
   readonly: boolean;

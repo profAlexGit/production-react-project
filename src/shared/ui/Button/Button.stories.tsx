@@ -73,6 +73,23 @@ export const OutlineDark: Story = {
   }
 };
 
+export const OutlineDangerLight: Story = {
+  name: 'outline danger light',
+  args: {
+    theme: ThemeButton.OUTLINE_DANGER
+  }
+};
+
+export const OutlineDangerDark: Story = {
+  name: 'outline danger dark',
+  decorators: [
+    ThemeDecorator(Theme.DARK)
+  ],
+  args: {
+    theme: ThemeButton.OUTLINE_DANGER
+  }
+};
+
 export const BackgroundTheme: Story = {
   args: {
     theme: ThemeButton.BACKGROUND

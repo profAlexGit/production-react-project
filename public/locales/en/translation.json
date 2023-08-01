@@ -5,5 +5,10 @@
 	"Обновить страницу": "Reload page",
 	"Произошла непредвиденная ошибка": "Unknown error",
 	"Страница не найдена": "Page not found",
-	"язык": "English"
+	"язык": "English",
+	"Попробуйте обновить страницу": "Try refreshing the page",
+	"Отменить": "Cancel",
+	"Сохранить": "Save",
+	"Валюта": "Currency",
+	"Страна": "Country"
 }

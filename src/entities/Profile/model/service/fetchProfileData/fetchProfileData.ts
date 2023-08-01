@@ -16,7 +16,6 @@ export const fetchProfileData = createAsyncThunk<Profile, undefined, ThunkConfig
         throw new Error();
       }
 
-      // dispatch(profileActions.setProfile(response.data));
       return response.data;
     } catch (e) {
       return rejectWithValue('Ошибка запроса профиля');
