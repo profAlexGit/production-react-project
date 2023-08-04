@@ -4,7 +4,7 @@ import { CountrySelect } from './CountrySelect';
 import { Country } from '@entities/Country';
 
 const meta: Meta<typeof CountrySelect> = {
-  title: 'entity/Country/CountrySelect',
+  title: 'entities/Country/CountrySelect',
   component: CountrySelect,
   args: {
     value: Country.Russia

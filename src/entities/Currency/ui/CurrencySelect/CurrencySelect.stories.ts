@@ -4,7 +4,7 @@ import { CurrencySelect } from './CurrencySelect';
 import { Currency } from '@entities/Currency';
 
 const meta: Meta<typeof CurrencySelect> = {
-  title: 'entity/Currency/CurrencySelect',
+  title: 'entities/Currency/CurrencySelect',
   component: CurrencySelect,
   args: {
     value: Currency.USD

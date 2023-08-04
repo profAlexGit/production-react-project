@@ -67,7 +67,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
   }
 
   if (!data) {
-    return <Text text='no Data'/>;
+    return <Text text={t('Отсутствуют данные пользователя')}/>;
   }
 
   const mods = {

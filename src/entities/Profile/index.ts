@@ -9,6 +9,7 @@ import { getProfileReadonly } from './model/selectors/getProfileReadonly/getProf
 import { getProfileForm } from './model/selectors/getProfileForm/getProfileForm';
 import { getProfileErrors } from './model/selectors/getProfileErrors/getProfileErrors';
 import { ProfileCard } from './ui/ProfileCard/ProfileCard';
+import { mockedProfileState } from './model/types/mockedProfileState';
 
 export {
   type Profile,
@@ -23,5 +24,6 @@ export {
   getProfileReadonly,
   getProfileForm,
   getProfileErrors,
-  ProfileCard
+  ProfileCard,
+  mockedProfileState
 };
