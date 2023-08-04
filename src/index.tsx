@@ -11,15 +11,6 @@ import { StoreProvider } from '@app/providers/StoreProvider';
 const root = createRoot(document.getElementById('root') as HTMLDivElement);
 
 root.render(
-  // <BrowserRouter>
-  //   <StoreProvider>
-  //     <ErrorBoundary>
-  //       <ThemeProvider>
-  //         <App/>
-  //       </ThemeProvider>
-  //     </ErrorBoundary>
-  //   </StoreProvider>
-  // </BrowserRouter>
   <StoreProvider>
     <BrowserRouter>
       <ErrorBoundary>

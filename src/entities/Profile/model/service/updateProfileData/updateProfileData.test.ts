@@ -25,7 +25,7 @@ describe('updateProfileData.test', () => {
       }
     };
 
-    const thunk = new TestAsyncThunk(updateProfileData);
+    const thunk = new TestAsyncThunk(updateProfileData, newData);
     const getState = jest.spyOn(thunk, 'getState');
     getState.mockReturnValue(newData as StateSchema);
 
@@ -62,10 +62,10 @@ describe('updateProfileData.test', () => {
       }
     };
 
-    const thunk = new TestAsyncThunk(updateProfileData);
-    const getState = jest.spyOn(thunk, 'getState');
-
-    getState.mockReturnValue(newData as StateSchema);
+    const thunk = new TestAsyncThunk(updateProfileData, newData);
+    // const getState = jest.spyOn(thunk, 'getState');
+    //
+    // getState.mockReturnValue(newData as StateSchema);
     thunk.api.patch.mockReturnValue(Promise.resolve(
       {
         status: 500
@@ -89,10 +89,11 @@ describe('updateProfileData.test', () => {
       }
     };
 
-    const thunk = new TestAsyncThunk(updateProfileData);
-    const getState = jest.spyOn(thunk, 'getState');
+    const thunk = new TestAsyncThunk(updateProfileData, newData);
+    // const getState = jest.spyOn(thunk, 'getState');
+    //
+    // getState.mockReturnValue(newData as StateSchema);
 
-    getState.mockReturnValue(newData as StateSchema);
     thunk.api.patch.mockReturnValue(Promise.resolve(
       {
         status: 200
@@ -124,10 +125,10 @@ describe('updateProfileData.test', () => {
       }
     };
 
-    const thunk = new TestAsyncThunk(updateProfileData);
-    const getState = jest.spyOn(thunk, 'getState');
-
-    getState.mockReturnValue(newData as StateSchema);
+    const thunk = new TestAsyncThunk(updateProfileData, newData);
+    // const getState = jest.spyOn(thunk, 'getState');
+    //
+    // getState.mockReturnValue(newData as StateSchema);
 
     const result = await thunk.callThunk(undefined);
 
@@ -154,10 +155,10 @@ describe('updateProfileData.test', () => {
       }
     };
 
-    const thunk = new TestAsyncThunk(updateProfileData);
-    const getState = jest.spyOn(thunk, 'getState');
-
-    getState.mockReturnValue(newData as StateSchema);
+    const thunk = new TestAsyncThunk(updateProfileData, newData);
+    // const getState = jest.spyOn(thunk, 'getState');
+    //
+    // getState.mockReturnValue(newData as StateSchema);
 
     const result = await thunk.callThunk(undefined);
 
@@ -184,10 +185,10 @@ describe('updateProfileData.test', () => {
       }
     };
 
-    const thunk = new TestAsyncThunk(updateProfileData);
-    const getState = jest.spyOn(thunk, 'getState');
-
-    getState.mockReturnValue(newData as StateSchema);
+    const thunk = new TestAsyncThunk(updateProfileData, newData);
+    // const getState = jest.spyOn(thunk, 'getState');
+    //
+    // getState.mockReturnValue(newData as StateSchema);
 
     const result = await thunk.callThunk(undefined);
 
@@ -214,10 +215,10 @@ describe('updateProfileData.test', () => {
       }
     };
 
-    const thunk = new TestAsyncThunk(updateProfileData);
-    const getState = jest.spyOn(thunk, 'getState');
-
-    getState.mockReturnValue(newData as StateSchema);
+    const thunk = new TestAsyncThunk(updateProfileData, newData);
+    // const getState = jest.spyOn(thunk, 'getState');
+    //
+    // getState.mockReturnValue(newData as StateSchema);
 
     const result = await thunk.callThunk(undefined);
 
@@ -244,10 +245,10 @@ describe('updateProfileData.test', () => {
       }
     };
 
-    const thunk = new TestAsyncThunk(updateProfileData);
-    const getState = jest.spyOn(thunk, 'getState');
-
-    getState.mockReturnValue(newData as StateSchema);
+    const thunk = new TestAsyncThunk(updateProfileData, newData);
+    // const getState = jest.spyOn(thunk, 'getState');
+    //
+    // getState.mockReturnValue(newData as StateSchema);
 
     const result = await thunk.callThunk(undefined);
 

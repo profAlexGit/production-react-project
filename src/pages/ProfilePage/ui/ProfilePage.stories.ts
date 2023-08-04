@@ -5,12 +5,25 @@ import { ThemeDecorator } from '@shared/config/storybookDecorators/ThemeDecorato
 import { ProfilePage } from './ProfilePage';
 import { StoreDecorator } from '@shared/config/storybookDecorators/StoreDecorator';
 import { ValidationProfileError } from '@entities/Profile/model/types/profile';
+import { mockedProfileState } from '@entities/Profile';
 
-const validationErrorProfileState = {
+const profileFormState = {
   profile: {
-    validateError: [ValidationProfileError.SERVER_ERROR],
-    isLoading: false,
-    readonly: true
+    ...mockedProfileState
+  }
+};
+
+const profileEditableState = {
+  profile: {
+    ...mockedProfileState,
+    readonly: false
+  }
+};
+
+const validationErrorDataProfileState = {
+  profile: {
+    ...mockedProfileState,
+    validateError: [ValidationProfileError.INCORRECT_USER_DATA]
   }
 };
 
@@ -25,20 +38,31 @@ export default meta;
 type Story = StoryObj<typeof ProfilePage>;
 
 export const Light: Story = {
-  name: 'Светлая страница профиля'
+  name: 'Страница профиля (light)',
+  decorators: [StoreDecorator(profileFormState)]
 };
 
 export const Dark: Story = {
-  name: 'Темная страница профиля',
-  decorators: [ThemeDecorator(Theme.DARK)]
+  name: 'Страница профиля (dark)',
+  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator(profileFormState)]
 };
 
-export const LightWithError: Story = {
-  name: 'Светлая страница профиля с ошибкой',
-  decorators: [StoreDecorator(validationErrorProfileState)]
+export const EditableLight: Story = {
+  name: 'Радктирование (light)',
+  decorators: [StoreDecorator(profileEditableState)]
 };
 
-export const DarkWithError: Story = {
-  name: 'Темная страница профиля с ошибкой',
-  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator(validationErrorProfileState)]
+export const EditableDark: Story = {
+  name: 'Радктирование (dark)',
+  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator(profileEditableState)]
+};
+
+export const LightWithErrorValidation: Story = {
+  name: 'Страница профиля с ошибкой валидации данных (light)',
+  decorators: [StoreDecorator(validationErrorDataProfileState)]
+};
+
+export const DarkWithErrorValidation: Story = {
+  name: 'Страница профиля с ошибкой валидации данных (dark)',
+  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator(validationErrorDataProfileState)]
 };
