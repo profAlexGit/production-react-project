@@ -1,6 +1,7 @@
 import type webpack from 'webpack';
 import type { BuildOptions } from '../types/config';
 import { buildCssLoaders } from './loaders/buildCssLoaders';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 
 export function buildLoaders (options: BuildOptions): webpack.RuleSetRule[] {
   const { isDev } = options;
@@ -26,13 +27,7 @@ export function buildLoaders (options: BuildOptions): webpack.RuleSetRule[] {
     exclude: /node_modules/
   };
 
-  const babelLoader = {
-    test: /\.(ts|js|tsx|jsx)$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader'
-    }
-  };
+  const babelLoader = buildBabelLoader(isDev);
 
   const cssLoaders = buildCssLoaders(isDev);
 
