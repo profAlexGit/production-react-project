@@ -80,18 +80,3 @@ export const errorLoadingDark: Story = {
   },
   decorators: [ThemeDecorator(Theme.DARK)]
 };
-
-export const noDataLight: Story = {
-  name: 'Отсутствуют данные (light)',
-  args: {
-    isLoading: false
-  }
-};
-
-export const noDataDark: Story = {
-  name: 'Отсутствуют данные (dark)',
-  args: {
-    isLoading: false
-  },
-  decorators: [ThemeDecorator(Theme.DARK)]
-};
