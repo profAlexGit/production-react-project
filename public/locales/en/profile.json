@@ -1,0 +1,15 @@
+{
+	"Ошибка запроса профиля": "Profile Request Failed",
+	"Отсутствуют данные пользователя": "Missing user data",
+	"Не удалось обновить профиль": "Failed to update profile",
+	"Некорректные данные пользователя": "Incorrect user data",
+	"Некорректный возраст": "Incorrect age",
+	"Профиль": "Profile",
+	"Редактировать": "Edit",
+	"Ваше имя": "your name",
+	"Ваша фамилия": "Your last name",
+	"Ваш возраст": "Your age",
+	"Город": "City",
+	"username": "username",
+	"аватар": "avatar"
+}

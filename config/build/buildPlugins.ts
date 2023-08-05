@@ -6,7 +6,7 @@ import type { BuildOptions } from '../types/config';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 // import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 
-export function buildPlugins ({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlugins ({ paths, isDev, apiURL, project }: BuildOptions): webpack.WebpackPluginInstance[] {
   const plugins = [
     new HTMLWebpackPlugin({
       template: paths.html
@@ -17,7 +17,9 @@ export function buildPlugins ({ paths, isDev }: BuildOptions): webpack.WebpackPl
       chunkFilename: 'css/[name].[contenthash:8].css'
     }),
     new webpack.DefinePlugin({
-      __IS_DEV__: isDev
+      __IS_DEV__: isDev,
+      __API__: JSON.stringify(apiURL),
+      __PROJECT__: JSON.stringify(project)
     }),
     new ReactRefreshWebpackPlugin()
   ];

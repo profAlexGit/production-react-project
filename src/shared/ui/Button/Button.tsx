@@ -1,11 +1,13 @@
-import type { ButtonHTMLAttributes, FC } from 'react';
+import type { ButtonHTMLAttributes } from 'react';
 import styles from './Button.module.scss';
 import { classNames } from '@shared/lib/classNames/classNames';
+import { memo } from 'react';
 
 export enum ThemeButton {
   CLEAR = 'clear',
   CLEAR_INVERTED = 'clearInverted',
   OUTLINE = 'outline',
+  OUTLINE_DANGER = 'outlineDanger',
   BACKGROUND = 'background',
   BACKGROUND_INVERTED = 'backgroundInverted'
 }
@@ -22,9 +24,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   square?: boolean;
   size?: SizeButton;
   disabled?: boolean;
+  onClick?: () => void | Promise<void>;
 }
 
-export const Button: FC<ButtonProps> = (props) => {
+export const Button = memo((props: ButtonProps) => {
   const {
     className,
     children,
@@ -32,6 +35,7 @@ export const Button: FC<ButtonProps> = (props) => {
     square,
     size = SizeButton.M,
     disabled = false,
+    onClick,
     ...rest
   } = props;
 
@@ -55,9 +59,10 @@ export const Button: FC<ButtonProps> = (props) => {
     <button
       className={classes()}
       disabled={disabled}
+      onClick={onClick}
       {...rest}
     >
       {children}
     </button>
   );
-};
+});

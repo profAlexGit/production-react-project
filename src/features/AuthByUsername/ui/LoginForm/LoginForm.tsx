@@ -4,7 +4,7 @@ import { classNames } from '@shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, ThemeButton } from '@shared/ui/Button/Button';
 import { Input } from '@shared/ui/Input/Input';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { loginByUsername } from '../../model/service/loginByUsername/loginByUsername';
 import { TextTheme, Text } from '@shared/ui/Text/Text';
@@ -13,9 +13,12 @@ import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLogi
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { DynamicModuleLoader, type ReducersList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { useNavigate } from 'react-router';
 
 interface LoginFormProps {
   className?: string;
+  onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
@@ -24,11 +27,13 @@ const initialReducers: ReducersList = {
 
 export const LoginForm = memo((props: LoginFormProps) => {
   const {
-    className
+    className,
+    onSuccess
   } = props;
 
   const { t } = useTranslation('loginForm');
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
@@ -43,9 +48,13 @@ export const LoginForm = memo((props: LoginFormProps) => {
     dispatch(loginActions.setPassword(value));
   }, [dispatch]);
 
-  const onLoginClick = useCallback(() => {
-    dispatch(loginByUsername({ username, password }));
-  }, [dispatch, password, username]);
+  const onLoginClick = useCallback(async () => {
+    const result = await dispatch(loginByUsername({ username, password }));
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess();
+      navigate('/profile');
+    }
+  }, [dispatch, onSuccess, password, username]);
 
   return (
     <DynamicModuleLoader
@@ -58,7 +67,7 @@ export const LoginForm = memo((props: LoginFormProps) => {
         {error && (
           <Text
             theme={TextTheme.ERROR}
-            text={error}
+            text={t(error, { ns: 'loginForm' })}
           />
         )}
         <Input

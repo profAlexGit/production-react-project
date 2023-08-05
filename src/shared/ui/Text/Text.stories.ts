@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Text, TextTheme } from './Text';
+import { Text, TextALign, TextTheme } from './Text';
 import { ThemeDecorator } from '@shared/config/storybookDecorators/ThemeDecorator';
 import { Theme } from '@app/providers/ThemeProvider';
 
@@ -77,4 +77,30 @@ export const ErrorTextFullDark: Story = {
     theme: TextTheme.ERROR
   },
   decorators: [ThemeDecorator(Theme.DARK)]
+};
+
+export const LeftAlign: Story = {
+  name: 'выравнивание по левому краю',
+  args: {
+    title: 'Title',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus eveniet illo repellendus ullam.'
+  }
+};
+
+export const RightAlign: Story = {
+  name: 'выравнивание по правому краю',
+  args: {
+    title: 'Title',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus eveniet illo repellendus ullam.',
+    align: TextALign.RIGHT
+  }
+};
+
+export const CenterAlign: Story = {
+  name: 'выравнивание по центру',
+  args: {
+    title: 'Title',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus eveniet illo repellendus ullam.',
+    align: TextALign.CENTER
+  }
 };
