@@ -9,7 +9,8 @@ const initialState: ProfileSchema = {
   readonly: true,
   error: undefined,
   data: undefined,
-  form: undefined
+  form: undefined,
+  validateError: []
 };
 
 export const profileSlice = createSlice({
@@ -27,7 +28,7 @@ export const profileSlice = createSlice({
       state.form = { ...state.data };
       state.readonly = true;
       state.error = undefined;
-      state.validateError = [];
+      state.validateError = null;
     },
     updateProfile: (state: ProfileSchema, action: PayloadAction<DeepPartial<Profile>>) => {
       if (!state.form) {
@@ -57,7 +58,7 @@ export const profileSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(updateProfileData.pending, (state: ProfileSchema) => {
-        state.validateError = [];
+        state.validateError = null;
         state.isLoading = true;
         state.readonly = true;
       })

@@ -103,13 +103,15 @@ export const ProfilePage: FC = (props) => {
     <DynamicModuleLoader reducers={initialReducers}>
       <div>
         <ProfilePageHeader />
-        {validateErrors.map((error) => (
-          <Text
-            key={error}
-            theme={TextTheme.ERROR}
-            text={validateErrorTranslates[error]}
-          />
-        ))}
+        {validateErrors?.length
+          ? validateErrors.map((error) => (
+            <Text
+              key={error}
+              theme={TextTheme.ERROR}
+              text={validateErrorTranslates[error]}
+            />
+          ))
+          : null}
         <ProfileCard
           data={formData}
           isLoading={isLoading}
