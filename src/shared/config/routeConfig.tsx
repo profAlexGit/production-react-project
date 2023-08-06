@@ -3,9 +3,8 @@ import { AboutPage } from '@pages/AboutPage';
 import { MainPage } from '@pages/MainPage';
 import { NotFoundPage } from '@pages/NotFoundPage';
 import { ProfilePage } from '@pages/ProfilePage';
-import { RequireAuth } from '@app/providers/router/ui/RequireAuth';
 
-type AppRouteProps = RouteProps & {
+export type AppRouteProps = RouteProps & {
   authOnly?: boolean;
 }
 
@@ -34,9 +33,7 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
   },
   [AppRoutes.PROFILE]: {
     path: RoutePath.profile,
-    element: <RequireAuth>
-      <ProfilePage />
-    </RequireAuth>,
+    element: <ProfilePage />,
     authOnly: true
   },
   [AppRoutes.NOT_FOUND]: {
