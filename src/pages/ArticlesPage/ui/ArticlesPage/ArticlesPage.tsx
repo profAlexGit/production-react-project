@@ -15,7 +15,7 @@ export const ArticlesPage: FC = memo((props: ArticlesPageProps) => {
     <div
       className={classNames(styles.articlesPage, {}, [className])}
     >
-      ARTICLES
+        ARTICLES
     </div>
   );
 });

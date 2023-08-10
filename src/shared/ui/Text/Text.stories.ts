@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Text, TextALign, TextTheme } from './Text';
+import { Text, TextALign, TextSize, TextTheme } from './Text';
 import { ThemeDecorator } from '@shared/config/storybookDecorators/ThemeDecorator';
 import { Theme } from '@app/providers/ThemeProvider';
 
@@ -54,6 +54,44 @@ export const TextFull: Story = {
 export const TextFullDark: Story = {
   name: 'Dark: with title and text',
   args: {
+    title: 'Title',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus eveniet illo repellendus ullam. Ad assumenda error est ex iusto molestiae officiis praesentium quia quibusdam, recusandae repellendus, saepe totam vero voluptas!'
+  },
+  decorators: [ThemeDecorator(Theme.DARK)]
+};
+
+export const TextFullL: Story = {
+  name: 'with title and text size L',
+  args: {
+    size: TextSize.L,
+    title: 'Title',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus eveniet illo repellendus ullam. Ad assumenda error est ex iusto molestiae officiis praesentium quia quibusdam, recusandae repellendus, saepe totam vero voluptas!'
+  }
+};
+
+export const TextFullDarkL: Story = {
+  name: 'Dark: with title and text size L',
+  args: {
+    size: TextSize.L,
+    title: 'Title',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus eveniet illo repellendus ullam. Ad assumenda error est ex iusto molestiae officiis praesentium quia quibusdam, recusandae repellendus, saepe totam vero voluptas!'
+  },
+  decorators: [ThemeDecorator(Theme.DARK)]
+};
+
+export const TextFullM: Story = {
+  name: 'with title and text size M',
+  args: {
+    size: TextSize.M,
+    title: 'Title',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus eveniet illo repellendus ullam. Ad assumenda error est ex iusto molestiae officiis praesentium quia quibusdam, recusandae repellendus, saepe totam vero voluptas!'
+  }
+};
+
+export const TextFullDarkM: Story = {
+  name: 'Dark: with title and text size M',
+  args: {
+    size: TextSize.M,
     title: 'Title',
     text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus eveniet illo repellendus ullam. Ad assumenda error est ex iusto molestiae officiis praesentium quia quibusdam, recusandae repellendus, saepe totam vero voluptas!'
   },

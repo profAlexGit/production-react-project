@@ -5,12 +5,14 @@ import { type CombinedState, type EnhancedStore, type Reducer, type ReducersMapO
 import { type AnyAction } from 'redux';
 import { type ProfileSchema } from '@entities/Profile';
 import { type AxiosInstance } from 'axios';
+import { type ArticleDetailsSchema } from '@entities/Article/model/types/articleDetailsSchema';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema,
   loginForm?: LoginSchema,
-  profile?: ProfileSchema
+  profile?: ProfileSchema,
+  articleDetails?: ArticleDetailsSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;
