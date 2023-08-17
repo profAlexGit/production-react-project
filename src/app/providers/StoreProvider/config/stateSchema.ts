@@ -6,13 +6,15 @@ import { type AnyAction } from 'redux';
 import { type ProfileSchema } from '@entities/Profile';
 import { type AxiosInstance } from 'axios';
 import { type ArticleDetailsSchema } from '@entities/Article/model/types/articleDetailsSchema';
+import { type ArticleCommentsSchema } from '@features/ArticleComments';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema,
   loginForm?: LoginSchema,
   profile?: ProfileSchema,
-  articleDetails?: ArticleDetailsSchema
+  articleDetails?: ArticleDetailsSchema,
+  articleComments?: ArticleCommentsSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;

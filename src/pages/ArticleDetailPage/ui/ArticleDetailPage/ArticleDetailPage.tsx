@@ -16,6 +16,7 @@ import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, type ReducersList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsReducer } from '@entities/Article/model/slice/articleDetailsSlice';
 import { Text, TextTheme } from '@shared/ui/Text/Text';
+import { ArticleComments } from '@features/ArticleComments';
 
 const initialReducers: ReducersList = {
   articleDetails: articleDetailsReducer
@@ -60,7 +61,16 @@ export const ArticleDetailPage: FC = memo((props: ArticleDetailPageProps) => {
           />
         )}
 
-        {data && <ArticleDetails article={data}/>}
+        { data && (
+          <>
+            <ArticleDetails article={data}/>
+            <Text
+              className={styles.commentsTitle}
+              title={t('Комментарии')}
+            />
+            <ArticleComments id={data.id} />
+          </>
+        )}
 
       </div>
     </DynamicModuleLoader>
