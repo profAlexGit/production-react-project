@@ -3,7 +3,7 @@ import { type Comment } from '@entities/Comment/model/types/comment';
 import { type ThunkConfig } from '@app/providers/StoreProvider';
 
 export const fetchCommentsByArticleId = createAsyncThunk<Comment[], string, ThunkConfig<string>>(
-  'comment/fetchCommentsByArticleId',
+  'articleComments/fetchCommentsByArticleId',
   async (id, ThunkApi) => {
     const {
       extra,
@@ -11,7 +11,7 @@ export const fetchCommentsByArticleId = createAsyncThunk<Comment[], string, Thun
     } = ThunkApi;
 
     if (!id) {
-      rejectWithValue('Не удалось загрузить комментарии');
+      return rejectWithValue('Не удалось загрузить комментарии');
     }
 
     try {
@@ -28,7 +28,7 @@ export const fetchCommentsByArticleId = createAsyncThunk<Comment[], string, Thun
 
       return res.data;
     } catch (e) {
-      rejectWithValue('Не удалось загрузить комментарии');
+      return rejectWithValue('Не удалось загрузить комментарии');
     }
   }
 );

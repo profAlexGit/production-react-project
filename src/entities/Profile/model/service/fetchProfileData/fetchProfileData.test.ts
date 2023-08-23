@@ -22,7 +22,7 @@ describe('fetchProfileData.test', () => {
       data: profileData
     }));
 
-    const result = await thunk.callThunk(undefined);
+    const result = await thunk.callThunk('1');
     expect(thunk.api.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
     expect(result.payload).toEqual(profileData);
@@ -35,7 +35,7 @@ describe('fetchProfileData.test', () => {
       status: 403
     }));
 
-    const result = await thunk.callThunk(undefined);
+    const result = await thunk.callThunk('1');
     expect(thunk.api.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('rejected');
     expect(result.payload).toBe('Ошибка запроса профиля');

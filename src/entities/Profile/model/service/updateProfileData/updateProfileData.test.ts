@@ -35,11 +35,11 @@ describe('updateProfileData.test', () => {
       }
     ));
 
-    const result = await thunk.callThunk(undefined);
+    const result = await thunk.callThunk('1');
 
     expect(thunk.api.patch).toHaveBeenCalled();
     expect(thunk.api.patch).toHaveBeenCalledTimes(1);
-    expect(thunk.api.patch).toHaveBeenCalledWith('/profile', newData.profile!.form);
+    expect(thunk.api.patch).toHaveBeenCalledWith('/profile/1', newData.profile!.form);
     expect(result.meta.requestStatus).toBe('fulfilled');
     expect(result.payload).toEqual(newData.profile!.form);
   });
@@ -63,20 +63,18 @@ describe('updateProfileData.test', () => {
     };
 
     const thunk = new TestAsyncThunk(updateProfileData, newData);
-    // const getState = jest.spyOn(thunk, 'getState');
-    //
-    // getState.mockReturnValue(newData as StateSchema);
+
     thunk.api.patch.mockReturnValue(Promise.resolve(
       {
         status: 500
       }
     ));
 
-    const result = await thunk.callThunk(undefined);
+    const result = await thunk.callThunk('1');
 
     expect(thunk.api.patch).toHaveBeenCalled();
     expect(thunk.api.patch).toHaveBeenCalledTimes(1);
-    expect(thunk.api.patch).toHaveBeenCalledWith('/profile', newData.profile!.form);
+    expect(thunk.api.patch).toHaveBeenCalledWith('/profile/1', newData.profile!.form);
     expect(result.meta.requestStatus).toBe('rejected');
     expect(result.payload).toEqual([ValidationProfileError.SERVER_ERROR]);
   });
@@ -90,9 +88,6 @@ describe('updateProfileData.test', () => {
     };
 
     const thunk = new TestAsyncThunk(updateProfileData, newData);
-    // const getState = jest.spyOn(thunk, 'getState');
-    //
-    // getState.mockReturnValue(newData as StateSchema);
 
     thunk.api.patch.mockReturnValue(Promise.resolve(
       {
@@ -100,7 +95,7 @@ describe('updateProfileData.test', () => {
       }
     ));
 
-    const result = await thunk.callThunk(undefined);
+    const result = await thunk.callThunk('1');
 
     expect(thunk.api.patch).not.toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('rejected');
@@ -126,11 +121,8 @@ describe('updateProfileData.test', () => {
     };
 
     const thunk = new TestAsyncThunk(updateProfileData, newData);
-    // const getState = jest.spyOn(thunk, 'getState');
-    //
-    // getState.mockReturnValue(newData as StateSchema);
 
-    const result = await thunk.callThunk(undefined);
+    const result = await thunk.callThunk('1');
 
     expect(thunk.api.patch).not.toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('rejected');
@@ -156,11 +148,7 @@ describe('updateProfileData.test', () => {
     };
 
     const thunk = new TestAsyncThunk(updateProfileData, newData);
-    // const getState = jest.spyOn(thunk, 'getState');
-    //
-    // getState.mockReturnValue(newData as StateSchema);
-
-    const result = await thunk.callThunk(undefined);
+    const result = await thunk.callThunk('1');
 
     expect(thunk.api.patch).not.toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('rejected');
@@ -186,11 +174,8 @@ describe('updateProfileData.test', () => {
     };
 
     const thunk = new TestAsyncThunk(updateProfileData, newData);
-    // const getState = jest.spyOn(thunk, 'getState');
-    //
-    // getState.mockReturnValue(newData as StateSchema);
 
-    const result = await thunk.callThunk(undefined);
+    const result = await thunk.callThunk('1');
 
     expect(thunk.api.patch).not.toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('rejected');
@@ -216,11 +201,8 @@ describe('updateProfileData.test', () => {
     };
 
     const thunk = new TestAsyncThunk(updateProfileData, newData);
-    // const getState = jest.spyOn(thunk, 'getState');
-    //
-    // getState.mockReturnValue(newData as StateSchema);
 
-    const result = await thunk.callThunk(undefined);
+    const result = await thunk.callThunk('1');
 
     expect(thunk.api.patch).not.toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('rejected');
@@ -246,11 +228,8 @@ describe('updateProfileData.test', () => {
     };
 
     const thunk = new TestAsyncThunk(updateProfileData, newData);
-    // const getState = jest.spyOn(thunk, 'getState');
-    //
-    // getState.mockReturnValue(newData as StateSchema);
 
-    const result = await thunk.callThunk(undefined);
+    const result = await thunk.callThunk('1');
 
     expect(thunk.api.patch).not.toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('rejected');

@@ -46,8 +46,6 @@ describe('articleDetailsSlice.test', () => {
       fetchArticleById.rejected
     );
 
-    console.log(result);
-
     expect(result.isLoading).toBe(false);
   });
 });

@@ -8,6 +8,7 @@ export enum ValidationProfileError {
   SERVER_ERROR = 'SERVER_ERROR'
 }
 export interface Profile {
+  id?: string;
   firstName: string;
   lastName: string;
   age: number;

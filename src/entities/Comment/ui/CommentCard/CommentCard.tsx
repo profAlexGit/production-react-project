@@ -4,6 +4,8 @@ import { Avatar } from '@shared/ui/Avatar/Avatar';
 import { Text } from '@shared/ui/Text/Text';
 import { type Comment } from '../../model/types/comment';
 import { memo } from 'react';
+import { AppLink } from '@shared/ui/AppLink/AppLink';
+import { RoutePath } from '@shared/config/routeConfig';
 
 interface CommentCardProps {
   className?: string;
@@ -20,7 +22,10 @@ export const CommentCard = memo((props: CommentCardProps) => {
     <div
       className={classNames(styles.commentCard, {}, [className])}
     >
-      <header className={styles.header}>
+      <AppLink
+        to={`${RoutePath.profile}${comment.user.id}`}
+        className={styles.header}
+      >
         {comment.user.avatar && (
           <Avatar
             size={30}
@@ -28,7 +33,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
           />
         )}
         <Text title={comment.user.username}/>
-      </header>
+      </AppLink>
       <Text
         className={styles.text}
         text={comment.text}

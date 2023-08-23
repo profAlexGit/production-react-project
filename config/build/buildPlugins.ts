@@ -20,6 +20,10 @@ export function buildPlugins ({ paths, isDev, apiURL, project }: BuildOptions): 
       __IS_DEV__: isDev,
       __API__: JSON.stringify(apiURL),
       __PROJECT__: JSON.stringify(project)
+    }),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+      analyzerPort: 8000
     })
   ];
 

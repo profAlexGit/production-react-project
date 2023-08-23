@@ -106,7 +106,7 @@ describe('loginSlice.test', () => {
 
     const result = profileReducer(
       state as ProfileSchema,
-      updateProfileData.fulfilled(mockedProfileState.data as Profile, '', undefined)
+      updateProfileData.fulfilled(mockedProfileState.data as Profile, '', '1')
     );
 
     expect(result.isLoading).toEqual(false);
