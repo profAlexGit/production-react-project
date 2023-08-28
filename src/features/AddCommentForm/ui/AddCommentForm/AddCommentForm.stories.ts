@@ -12,7 +12,7 @@ const initialState: DeepPartial<StateSchema> = {
 };
 
 const meta: Meta<typeof AddCommentForm> = {
-  title: 'change/AddCommentForm',
+  title: 'features/AddCommentForm',
   component: AddCommentForm,
   decorators: [StoreDecorator(initialState)]
 };

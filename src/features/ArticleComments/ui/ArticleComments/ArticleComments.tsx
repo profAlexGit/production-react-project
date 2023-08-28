@@ -34,11 +34,15 @@ export const ArticleComments = memo((props: ArticleCommentsProps) => {
   const error = useSelector(getArticleCommentsError);
 
   useInitialEffect(() => {
-    dispatch(fetchCommentsByArticleId(id));
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchCommentsByArticleId(id));
+    }
   });
 
   const onSendComment = useCallback((text: string) => {
-    dispatch(addCommentForArticle(text));
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(addCommentForArticle(text));
+    }
   }, [dispatch]);
 
   return (

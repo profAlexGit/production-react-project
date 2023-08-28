@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ArticleSkeleton } from './ArticleSkeleton';
 
 const meta: Meta<typeof ArticleSkeleton> = {
-  title: 'change/ArticleSkeleton',
+  title: 'entities/Article/ArticleSkeleton',
   component: ArticleSkeleton
 };
 
