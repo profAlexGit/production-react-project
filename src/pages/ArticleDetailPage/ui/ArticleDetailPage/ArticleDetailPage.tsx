@@ -1,15 +1,16 @@
 import styles from './articleDetailPage.module.scss';
 import { classNames } from '@shared/lib/classNames/classNames';
-import { type FC, memo, useEffect } from 'react';
+import { type FC, memo, useEffect, useCallback } from 'react';
 import {
   ArticleDetails,
-  getArticleDetailsIsLoading,
-  getArticleDetailsError,
+  ArticleSkeleton,
   fetchArticleById,
-  getArticleDetailsData, ArticleSkeleton
+  getArticleDetailsData,
+  getArticleDetailsError,
+  getArticleDetailsIsLoading
 } from '@entities/Article';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 
@@ -17,6 +18,8 @@ import { DynamicModuleLoader, type ReducersList } from '@shared/lib/components/D
 import { articleDetailsReducer } from '@entities/Article/model/slice/articleDetailsSlice';
 import { Text, TextTheme } from '@shared/ui/Text/Text';
 import { ArticleComments } from '@features/ArticleComments';
+import { Button, ThemeButton } from '@shared/ui/Button/Button';
+import { RoutePath } from '@shared/config/routeConfig';
 
 const initialReducers: ReducersList = {
   articleDetails: articleDetailsReducer
@@ -33,6 +36,7 @@ export const ArticleDetailPage: FC = memo((props: ArticleDetailPageProps) => {
 
   const { t } = useTranslation('article');
   const { id } = useParams();
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticleDetailsIsLoading);
   const error = useSelector(getArticleDetailsError);
@@ -44,11 +48,21 @@ export const ArticleDetailPage: FC = memo((props: ArticleDetailPageProps) => {
     }
   }, [dispatch, id]);
 
+  const onBackToList = useCallback(() => {
+    navigate(RoutePath.articles);
+  }, [navigate]);
+
   return (
     <DynamicModuleLoader reducers={initialReducers}>
       <div
         className={classNames(styles.articleDetailPage, {}, [className])}
       >
+        <Button
+          theme={ThemeButton.OUTLINE}
+          onClick={onBackToList}
+        >
+          {t('Назад к списку')}
+        </Button>
         {isLoading && (
           <ArticleSkeleton />
         )}

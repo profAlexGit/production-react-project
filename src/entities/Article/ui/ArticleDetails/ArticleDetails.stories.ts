@@ -12,6 +12,11 @@ const articleData: Article = {
   views: 1022,
   createdAt: '26.02.2023',
   type: [ArticleType.IT],
+  user: {
+    avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtNCMT54L-V2GEqBbWoQRBvtqlDRxRGD5H0g&usqp=CAU',
+    username: 'some username',
+    id: '1'
+  },
   blocks: [
     {
       id: '1',

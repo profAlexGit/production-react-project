@@ -5,6 +5,7 @@ import { ArticleBlockType, ArticleType } from '@entities/Article/model/types/art
 import { StoreDecorator } from '@shared/config/storybookDecorators/StoreDecorator';
 import { ThemeDecorator } from '@shared/config/storybookDecorators/ThemeDecorator';
 import { Theme } from '@app/providers/ThemeProvider';
+import { RouteDecorator } from '@shared/config/storybookDecorators/RouteDecorator';
 
 const articleData: Article = {
   id: '1',
@@ -14,6 +15,11 @@ const articleData: Article = {
   views: 1022,
   createdAt: '26.02.2023',
   type: [ArticleType.IT],
+  user: {
+    avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtNCMT54L-V2GEqBbWoQRBvtqlDRxRGD5H0g&usqp=CAU',
+    username: 'some username',
+    id: '1'
+  },
   blocks: [
     {
       id: '1',
@@ -78,7 +84,8 @@ const articleData: Article = {
 
 const meta: Meta<typeof ArticleDetailPage> = {
   title: 'pages/ArticleDetailPage',
-  component: ArticleDetailPage
+  component: ArticleDetailPage,
+  decorators: [RouteDecorator]
 };
 
 export default meta;
