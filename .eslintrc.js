@@ -25,6 +25,7 @@ module.exports = {
     semi: ['error', 'always'],
     'i18next/no-literal-string': ['warn'],
     'no-mixed-spaces-and-tab': 'off',
+    '@typescript-eslint/no-invalid-void-type': 'off',
     '@typescript-eslint/triple-slash-reference': 'off',
     '@typescript-eslint/prefer-nullish-coalescing': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',

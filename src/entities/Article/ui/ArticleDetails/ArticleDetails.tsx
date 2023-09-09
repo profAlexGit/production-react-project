@@ -26,16 +26,19 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         return <ArticleTextBlockComponent
           className={styles.textBlock}
           data={block}
+          key={block.id}
         />;
       case ArticleBlockType.IMAGE:
         return <ArticleImageBlockComponent
           className={styles.imageBlock}
           data={block}
+          key={block.id}
         />;
       case ArticleBlockType.CODE:
         return <ArticleCodeBlockComponent
           className={styles.codeBlock}
           data={block}
+          key={block.id}
         />;
       default:
         return null;
