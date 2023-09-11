@@ -17,8 +17,12 @@ export const useInfiniteScroll = (args: UseInfiniteScrollOptions): void => {
     if (!callback) {
       return;
     }
+
+    const wrapperElement = wrapperRef.current;
+    const triggerElement = triggerRef.current;
+
     const options = {
-      root: wrapperRef.current,
+      root: wrapperElement,
       rootMargin: '0px',
       threshold: 1.0
     };
@@ -29,12 +33,12 @@ export const useInfiniteScroll = (args: UseInfiniteScrollOptions): void => {
       }
     }, options);
 
-    observer.observe(triggerRef.current);
+    observer.observe(triggerElement);
 
     return () => {
       if (observer) {
         console.log('unobserve');
-        observer.unobserve(triggerRef.current);
+        observer.unobserve(triggerElement);
       }
     };
   }, [triggerRef, wrapperRef, callback]);
