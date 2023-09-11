@@ -20,6 +20,7 @@ import { Text, TextTheme } from '@shared/ui/Text/Text';
 import { ArticleComments } from '@features/ArticleComments';
 import { Button, ThemeButton } from '@shared/ui/Button/Button';
 import { RoutePath } from '@shared/config/routeConfig';
+import { PageWrapper } from '@shared/ui/PageWrapper/PageWrapper';
 
 const initialReducers: ReducersList = {
   articleDetails: articleDetailsReducer
@@ -54,7 +55,7 @@ export const ArticleDetailPage: FC = memo((props: ArticleDetailPageProps) => {
 
   return (
     <DynamicModuleLoader reducers={initialReducers}>
-      <div
+      <PageWrapper
         className={classNames(styles.articleDetailPage, {}, [className])}
       >
         <Button
@@ -86,7 +87,7 @@ export const ArticleDetailPage: FC = memo((props: ArticleDetailPageProps) => {
           </>
         )}
 
-      </div>
+      </PageWrapper>
     </DynamicModuleLoader>
   );
 });

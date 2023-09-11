@@ -89,7 +89,10 @@ const meta: Meta<typeof ArticlesPage> = {
         1: articleData
       },
       error: null,
-      isLoading: false
+      isLoading: false,
+      page: 1,
+      limit: 4,
+      hasMore: true
     }
   })]
 };

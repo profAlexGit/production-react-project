@@ -22,6 +22,7 @@ import { ValidationProfileError } from '@entities/Profile/model/types/profile';
 import { useInitialEffect } from '@shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router';
 import { getUserAuthData } from '@entities/User';
+import { PageWrapper } from '@shared/ui/PageWrapper/PageWrapper';
 
 const initialReducers: ReducersList = {
   profile: profileReducer
@@ -111,7 +112,7 @@ export const ProfilePage: FC = (props) => {
 
   return (
     <DynamicModuleLoader reducers={initialReducers}>
-      <div>
+      <PageWrapper>
         <ProfilePageHeader />
         {validateErrors?.length
           ? validateErrors.map((error) => (
@@ -136,7 +137,7 @@ export const ProfilePage: FC = (props) => {
           onChangeCountry={onChangeCountry}
           readonly={readonly}
         />
-      </div>
+      </PageWrapper>
     </DynamicModuleLoader>
 
   );

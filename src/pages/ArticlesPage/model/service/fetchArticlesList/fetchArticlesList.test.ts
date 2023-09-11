@@ -1,7 +1,12 @@
 import { TestAsyncThunk } from '@shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { fetchArticlesList } from '@pages/ArticlesPage/model/service/fetchArticlesList';
+import { fetchArticlesList } from './fetchArticlesList';
 import { type Article } from '@entities/Article';
 import { type DeepPartial } from 'redux';
+import { type ArticlesPageSchema } from '@pages/ArticlesPage';
+
+const state: DeepPartial<ArticlesPageSchema> = {
+  limit: 4
+};
 
 describe('fetchArticlesList.test', () => {
   it('success fetch articles list', async () => {
@@ -11,13 +16,13 @@ describe('fetchArticlesList.test', () => {
         title: 'some title'
       }
     ];
-    const thunk = new TestAsyncThunk(fetchArticlesList);
+    const thunk = new TestAsyncThunk(fetchArticlesList, { articlesPage: state as ArticlesPageSchema });
 
     thunk.api.get.mockReturnValue(Promise.resolve({
       data: responseData
     }));
 
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk({ page: 1 });
 
     expect(thunk.api.get).toHaveBeenCalledTimes(1);
     expect(thunk.dispatch).toHaveBeenCalled();
@@ -27,11 +32,11 @@ describe('fetchArticlesList.test', () => {
   });
 
   it('failed fetch articles list with no data', async () => {
-    const thunk = new TestAsyncThunk(fetchArticlesList);
+    const thunk = new TestAsyncThunk(fetchArticlesList, { articlesPage: state as ArticlesPageSchema });
 
     thunk.api.get.mockReturnValue(Promise.resolve({}));
 
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk({ page: 1 });
 
     expect(thunk.api.get).toHaveBeenCalledTimes(1);
     expect(thunk.dispatch).toHaveBeenCalled();
@@ -41,11 +46,11 @@ describe('fetchArticlesList.test', () => {
   });
 
   it('failed fetch articles list with request error', async () => {
-    const thunk = new TestAsyncThunk(fetchArticlesList);
+    const thunk = new TestAsyncThunk(fetchArticlesList, { articlesPage: state as ArticlesPageSchema });
 
-    thunk.api.get.mockReturnValue(Promise.reject(new Error('Не удалось загрузить статьи')));
+    thunk.api.get.mockReturnValue(Promise.reject(new Error()));
 
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk({ page: 1 });
 
     expect(thunk.api.get).toHaveBeenCalledTimes(1);
     expect(thunk.dispatch).toHaveBeenCalled();

@@ -28,16 +28,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
       ));
   };
 
-  if (isLoading) {
-    return (
-      <div
-        className={classNames(styles.articleList, {}, [className, styles[view]])}
-      >
-        {getSkeletons()}
-      </div>
-    );
-  }
-
   const renderArticle = (article: Article): JSX.Element => {
     return <ArticleListItem
       key={article.id}
@@ -55,6 +45,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
           ? articles.map((article) => renderArticle(article))
           : false
       }
+
+      {isLoading && getSkeletons()}
     </div>
   );
 });

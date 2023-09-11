@@ -1,8 +1,8 @@
-import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
+import { createSlice, createEntityAdapter, type PayloadAction } from '@reduxjs/toolkit';
 import { type StateSchema } from '@app/providers/StoreProvider';
 import { type Article } from '@entities/Article';
-import { type ArticlesPageSchema } from '@pages/ArticlesPage';
-import { fetchArticlesList } from '@pages/ArticlesPage/model/service/fetchArticlesList';
+import { type ArticlesPageSchema } from '../types/articlesPageSchema';
+import { fetchArticlesList } from '../service/fetchArticlesList/fetchArticlesList';
 
 const articlePageAdapter = createEntityAdapter<Article>({
   selectId: (article) => article.id
@@ -16,13 +16,26 @@ const initialState: ArticlesPageSchema = articlePageAdapter.getInitialState<Arti
   error: null,
   isLoading: false,
   ids: [],
-  entities: {}
+  entities: {},
+  hasMore: true,
+  limit: 4,
+  page: 1
 });
 
 export const articlePageSlice = createSlice({
   name: 'articlePage',
   initialState,
-  reducers: {},
+  reducers: {
+    setPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload;
+    },
+    setLimit: (state, action: PayloadAction<number>) => {
+      state.limit = action.payload;
+    },
+    setHasMore: (state, action: PayloadAction<boolean>) => {
+      state.hasMore = action.payload;
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchArticlesList.pending, (state) => {
@@ -31,7 +44,8 @@ export const articlePageSlice = createSlice({
       })
       .addCase(fetchArticlesList.fulfilled, (state, action) => {
         state.isLoading = false;
-        articlePageAdapter.setAll(state, action.payload);
+        articlePageAdapter.addMany(state, action.payload);
+        state.hasMore = action.payload.length > 0;
       })
       .addCase(fetchArticlesList.rejected, (state, action) => {
         state.isLoading = false;
