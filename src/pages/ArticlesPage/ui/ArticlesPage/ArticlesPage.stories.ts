@@ -92,7 +92,8 @@ const meta: Meta<typeof ArticlesPage> = {
       isLoading: false,
       page: 1,
       limit: 4,
-      hasMore: true
+      hasMore: true,
+      _inited: true
     }
   })]
 };

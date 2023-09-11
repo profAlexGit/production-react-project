@@ -9,12 +9,12 @@ import {
   getArticlesPageIsLoading
 } from '../../model/selectors/articlesPageSelectors';
 import { useInitialEffect } from '@shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { fetchArticlesList } from '../../model/service/fetchArticlesList/fetchArticlesList';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { ArticlesListViewSelector } from '@features/ArticlesListViewSelecctor';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from '@shared/const/localstorage';
 import { PageWrapper } from '@shared/ui/PageWrapper/PageWrapper';
 import { fetchNextArticlesPage } from '../../model/service/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initArticlesPage } from '../../model/service/initArticlesPage/initArticlesPage';
 
 const reducers: ReducersList = {
   articlesPage: articlesPageReducer
@@ -47,7 +47,7 @@ export const ArticlesPage: FC = memo((props: ArticlesPageProps) => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(fetchArticlesList({ page: 1 }));
+    dispatch(initArticlesPage());
   });
 
   const onChangeView = useCallback((newView: ArticleListView) => {
@@ -55,7 +55,7 @@ export const ArticlesPage: FC = memo((props: ArticlesPageProps) => {
   }, []);
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <PageWrapper
         className={classNames(styles.articlesPage, {}, [className])}
         onScrollEnd={onLoadNextPage}

@@ -11,3 +11,5 @@ export const getArticlesPageNumber = (state: StateSchema): number => {
 };
 
 export const getArticlesPageHasMore = (state: StateSchema): boolean => state.articlesPage?.hasMore || false;
+
+export const getArticlesPageInited = (state: StateSchema): boolean => state.articlesPage?._inited || false;

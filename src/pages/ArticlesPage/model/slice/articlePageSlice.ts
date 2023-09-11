@@ -19,13 +19,17 @@ const initialState: ArticlesPageSchema = articlePageAdapter.getInitialState<Arti
   entities: {},
   hasMore: true,
   limit: 4,
-  page: 1
+  page: 1,
+  _inited: false
 });
 
 export const articlePageSlice = createSlice({
   name: 'articlePage',
   initialState,
   reducers: {
+    initState: (state) => {
+      state._inited = true;
+    },
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload;
     },
