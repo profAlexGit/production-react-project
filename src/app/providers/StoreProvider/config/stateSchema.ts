@@ -9,10 +9,12 @@ import { type ArticleDetailsSchema } from '@entities/Article/model/types/article
 import { type ArticleCommentsSchema } from '@features/ArticleComments';
 import { type AddCommentFormSchema } from '@features/AddCommentForm';
 import { type ArticlesPageSchema } from '@pages/ArticlesPage';
+import { type PageWrapperSchema } from '@widgets/PageWrapper';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema,
+  pageWrapper: PageWrapperSchema,
   loginForm?: LoginSchema,
   profile?: ProfileSchema,
   articleDetails?: ArticleDetailsSchema,

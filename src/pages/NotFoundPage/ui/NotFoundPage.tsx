@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import styles from './notFoundPage.module.scss';
 import { classNames } from '@shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { PageWrapper } from '@shared/ui/PageWrapper/PageWrapper';
+import { PageWrapper } from '@widgets/PageWrapper/ui/PageWrapper';
 
 interface NotFoundPageProps {
   className?: string

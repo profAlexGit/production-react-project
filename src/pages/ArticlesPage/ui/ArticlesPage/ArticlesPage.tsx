@@ -12,7 +12,7 @@ import { useInitialEffect } from '@shared/lib/hooks/useInitialEffect/useInitialE
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { ArticlesListViewSelector } from '@features/ArticlesListViewSelecctor';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from '@shared/const/localstorage';
-import { PageWrapper } from '@shared/ui/PageWrapper/PageWrapper';
+import { PageWrapper } from '@widgets/PageWrapper/ui/PageWrapper';
 import { fetchNextArticlesPage } from '../../model/service/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/service/initArticlesPage/initArticlesPage';
 
@@ -59,6 +59,7 @@ export const ArticlesPage: FC = memo((props: ArticlesPageProps) => {
       <PageWrapper
         className={classNames(styles.articlesPage, {}, [className])}
         onScrollEnd={onLoadNextPage}
+        saveScroll
       >
         <ArticlesListViewSelector
           view={view}

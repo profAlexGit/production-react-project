@@ -20,7 +20,7 @@ import { Text, TextTheme } from '@shared/ui/Text/Text';
 import { ArticleComments } from '@features/ArticleComments';
 import { Button, ThemeButton } from '@shared/ui/Button/Button';
 import { RoutePath } from '@shared/config/routeConfig';
-import { PageWrapper } from '@shared/ui/PageWrapper/PageWrapper';
+import { PageWrapper } from '@widgets/PageWrapper/ui/PageWrapper';
 
 const initialReducers: ReducersList = {
   articleDetails: articleDetailsReducer

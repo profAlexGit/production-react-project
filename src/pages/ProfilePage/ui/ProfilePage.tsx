@@ -22,7 +22,7 @@ import { ValidationProfileError } from '@entities/Profile/model/types/profile';
 import { useInitialEffect } from '@shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router';
 import { getUserAuthData } from '@entities/User';
-import { PageWrapper } from '@shared/ui/PageWrapper/PageWrapper';
+import { PageWrapper } from '@widgets/PageWrapper/ui/PageWrapper';
 
 const initialReducers: ReducersList = {
   profile: profileReducer
