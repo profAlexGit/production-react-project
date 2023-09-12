@@ -8,6 +8,7 @@ export enum ValidationProfileError {
   SERVER_ERROR = 'SERVER_ERROR'
 }
 export interface Profile {
+  id?: string;
   firstName: string;
   lastName: string;
   age: number;
@@ -24,5 +25,5 @@ export interface ProfileSchema {
   isLoading: boolean;
   error?: string;
   readonly: boolean;
-  validateError?: ValidationProfileError[];
+  validateError?: ValidationProfileError[] | null;
 }

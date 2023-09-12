@@ -19,6 +19,6 @@ describe('getProfileErrors.test', () => {
   test('should return empty array when no validation errors', () => {
     const state: DeepPartial<StateSchema> = {};
 
-    expect(getProfileErrors(state as StateSchema)).toEqual([]);
+    expect(getProfileErrors(state as StateSchema)).toEqual(null);
   });
 });

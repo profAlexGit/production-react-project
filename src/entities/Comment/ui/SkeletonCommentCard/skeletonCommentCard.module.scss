@@ -1,0 +1,14 @@
+.skeletonCommentCard {
+  padding: 10px;
+  border: 1px solid var(--primary-color);
+}
+
+.skeletonHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skeletonText {
+  margin-top: 10px;
+}

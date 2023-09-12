@@ -4,9 +4,9 @@ import { type ThunkConfig } from '@app/providers/StoreProvider';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
 import { ValidationProfileError } from '@entities/Profile/model/types/profile';
 
-export const updateProfileData = createAsyncThunk<Profile, undefined, ThunkConfig<ValidationProfileError[]>>(
+export const updateProfileData = createAsyncThunk<Profile, string, ThunkConfig<ValidationProfileError[]>>(
   'profile/update',
-  async (_, ThunkApi) => {
+  async (profileId, ThunkApi) => {
     const {
       extra,
       rejectWithValue,
@@ -21,7 +21,7 @@ export const updateProfileData = createAsyncThunk<Profile, undefined, ThunkConfi
         return rejectWithValue(errors);
       }
 
-      const result = await extra.api.patch('/profile', formData);
+      const result = await extra.api.patch(`/profile/${profileId}`, formData);
 
       if (!result.data) {
         throw new Error();

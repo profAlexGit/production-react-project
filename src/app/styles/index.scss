@@ -4,6 +4,12 @@
 @import "./themes/light";
 @import "./themes/orange";
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
   font: var(--font-m);
   color: var(--primary-color);
@@ -17,9 +23,4 @@ body {
 
 .contentPage {
   display: flex;
-}
-
-.pageWrapper {
-  flex-grow: 1;
-  padding: 20px;
 }

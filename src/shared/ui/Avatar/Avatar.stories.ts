@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import avatarImg from '@shared/assets/avatar.jpg';
 
 import { Avatar } from './Avatar';
 
@@ -6,7 +7,7 @@ const meta: Meta<typeof Avatar> = {
   title: 'shared/Avatar',
   component: Avatar,
   args: {
-    src: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg'
+    src: avatarImg
   }
 };
 

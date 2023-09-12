@@ -1,0 +1,9 @@
+.articlesListViewSelector {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.notSelected {
+  fill: var(--secondary-color);
+}

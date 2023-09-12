@@ -8,7 +8,7 @@ const profileData = {
   age: 21,
   username: 'frontAlex',
   city: 'Moscow',
-  avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+  avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtNCMT54L-V2GEqBbWoQRBvtqlDRxRGD5H0g&usqp=CAU',
   country: Country.China,
   currency: Currency.RUB
 };

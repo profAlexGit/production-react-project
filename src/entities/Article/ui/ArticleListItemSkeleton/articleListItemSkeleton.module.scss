@@ -1,0 +1,44 @@
+.list {
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .date {
+    margin-left: auto;
+  }
+
+  .title {
+    margin-top: 8px;
+  }
+
+  .img {
+    margin: 16px 0;
+  }
+
+  .footer {
+    margin-top: 8px;
+  }
+}
+
+.plate {
+  width: 230px;
+  justify-self: start;
+
+  .imageWrapper {
+    width: 100%;
+    position: relative;
+  }
+
+  .infoWrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+  }
+
+  .title {
+    margin-top: 8px;
+    width: 100%;
+  }
+}

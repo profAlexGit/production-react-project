@@ -48,7 +48,7 @@ describe('loginSlice.test', () => {
     expect(result.form).toEqual(state.data);
     expect(result.readonly).toBe(true);
     expect(result.error).toBeUndefined();
-    expect(result.validateError).toEqual([]);
+    expect(result.validateError).toEqual(null);
   });
 
   it('test updateProfile', () => {
@@ -89,7 +89,7 @@ describe('loginSlice.test', () => {
     );
 
     expect(result.isLoading).toEqual(true);
-    expect(result.validateError).toEqual([]);
+    expect(result.validateError).toEqual(null);
   });
 
   it('test update profile service fulfilled', () => {
@@ -106,7 +106,7 @@ describe('loginSlice.test', () => {
 
     const result = profileReducer(
       state as ProfileSchema,
-      updateProfileData.fulfilled(mockedProfileState.data as Profile, '', undefined)
+      updateProfileData.fulfilled(mockedProfileState.data as Profile, '', '1')
     );
 
     expect(result.isLoading).toEqual(false);

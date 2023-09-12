@@ -5,21 +5,34 @@ import { type CombinedState, type EnhancedStore, type Reducer, type ReducersMapO
 import { type AnyAction } from 'redux';
 import { type ProfileSchema } from '@entities/Profile';
 import { type AxiosInstance } from 'axios';
+import { type ArticleDetailsSchema } from '@entities/Article/model/types/articleDetailsSchema';
+import { type ArticleCommentsSchema } from '@features/ArticleComments';
+import { type AddCommentFormSchema } from '@features/AddCommentForm';
+import { type ArticlesPageSchema } from '@pages/ArticlesPage';
+import { type PageWrapperSchema } from '@widgets/PageWrapper';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema,
+  pageWrapper: PageWrapperSchema,
   loginForm?: LoginSchema,
-  profile?: ProfileSchema
+  profile?: ProfileSchema,
+  articleDetails?: ArticleDetailsSchema,
+  articleComments?: ArticleCommentsSchema,
+  addCommentFormSchema?: AddCommentFormSchema,
+  articlesPage?: ArticlesPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;
+
+export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>;
 
 export interface ReducerManager {
   getReducerMap: () => ReducersMapObject<StateSchema>;
   reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
   add: (key: StateSchemaKey, reducer: Reducer) => void;
   remove: (key: StateSchemaKey) => void;
+  getMountedReducers: () => MountedReducers;
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {

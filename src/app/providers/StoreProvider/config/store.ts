@@ -5,6 +5,7 @@ import { userReducer } from '@entities/User';
 import { createReducerManager } from './reducerManager';
 import { type AnyAction, type DeepPartial } from 'redux';
 import { $api } from '@shared/api/api';
+import { pageWrapperReducer } from '@widgets/PageWrapper';
 
 export function createReduxStore (
   initialState?: StateSchema,
@@ -13,7 +14,8 @@ export function createReduxStore (
   const rootReducer: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     counter: counterReducer,
-    user: userReducer
+    user: userReducer,
+    pageWrapper: pageWrapperReducer
   };
 
   const reducerManager = createReducerManager(rootReducer);

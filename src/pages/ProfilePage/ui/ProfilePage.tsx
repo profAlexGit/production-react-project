@@ -1,4 +1,4 @@
-import { type FC, useEffect } from 'react';
+import { type FC } from 'react';
 import { DynamicModuleLoader, type ReducersList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
   fetchProfileData,
@@ -19,6 +19,10 @@ import { type Country } from '@entities/Country';
 import { Text, TextTheme } from '@shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { ValidationProfileError } from '@entities/Profile/model/types/profile';
+import { useInitialEffect } from '@shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router';
+import { getUserAuthData } from '@entities/User';
+import { PageWrapper } from '@widgets/PageWrapper/ui/PageWrapper';
 
 const initialReducers: ReducersList = {
   profile: profileReducer
@@ -28,10 +32,13 @@ export const ProfilePage: FC = (props) => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation('profile');
 
+  const { id } = useParams();
+
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
+  const user = useSelector(getUserAuthData);
   const validateErrors = useSelector(getProfileErrors);
 
   const validateErrorTranslates: Record<ValidationProfileError, string> = {
@@ -41,11 +48,15 @@ export const ProfilePage: FC = (props) => {
     [ValidationProfileError.INCORRECT_AGE]: t('Некорректный возраст')
   };
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
+  useInitialEffect(() => {
+    if (id) {
+      dispatch(fetchProfileData(id));
     }
-  }, [dispatch]);
+
+    if (!id && user) {
+      dispatch(fetchProfileData(user.id));
+    }
+  });
 
   const onChangeFirstname = (value: string): void => {
     dispatch(profileActions.updateProfile({
@@ -101,15 +112,17 @@ export const ProfilePage: FC = (props) => {
 
   return (
     <DynamicModuleLoader reducers={initialReducers}>
-      <div>
+      <PageWrapper>
         <ProfilePageHeader />
-        {validateErrors.map((error) => (
-          <Text
-            key={error}
-            theme={TextTheme.ERROR}
-            text={validateErrorTranslates[error]}
-          />
-        ))}
+        {validateErrors?.length
+          ? validateErrors.map((error) => (
+            <Text
+              key={error}
+              theme={TextTheme.ERROR}
+              text={validateErrorTranslates[error]}
+            />
+          ))
+          : null}
         <ProfileCard
           data={formData}
           isLoading={isLoading}
@@ -124,7 +137,7 @@ export const ProfilePage: FC = (props) => {
           onChangeCountry={onChangeCountry}
           readonly={readonly}
         />
-      </div>
+      </PageWrapper>
     </DynamicModuleLoader>
 
   );

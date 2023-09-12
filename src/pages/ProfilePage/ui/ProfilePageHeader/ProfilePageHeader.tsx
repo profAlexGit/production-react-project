@@ -5,8 +5,9 @@ import { Text } from '@shared/ui/Text/Text';
 import { Button, ThemeButton } from '@shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { getProfileForm, getProfileReadonly, profileActions, updateProfileData } from '@entities/Profile';
+import { getProfileData, getProfileForm, getProfileReadonly, profileActions, updateProfileData } from '@entities/Profile';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { getUserAuthData } from '@entities/User';
 
 interface ProfilePageHeaderProps {
   className?: string;
@@ -23,6 +24,10 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
 
   const readonly = useSelector(getProfileReadonly);
   const formData = useSelector(getProfileForm);
+  const authData = useSelector(getUserAuthData);
+  const profileData = useSelector(getProfileData);
+
+  const canEdit = authData?.id === profileData?.id;
 
   const onEdit = useCallback((): void => {
     dispatch(profileActions.setReadonly(false));
@@ -33,11 +38,11 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
   }, [dispatch]);
 
   const onSave = useCallback(() => {
-    if (!formData) {
+    if (!formData || !profileData?.id) {
       return;
     }
 
-    dispatch(updateProfileData());
+    dispatch(updateProfileData(profileData?.id));
   }, [dispatch, formData]);
 
   return (
@@ -45,32 +50,35 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
       className={classNames(styles.profilePageHeader, {}, [className])}
     >
       <Text title={t('Профиль')}/>
-      {readonly
-        ? <Button
-          theme={ThemeButton.OUTLINE}
-          className={styles.editBtn}
-          onClick={onEdit}
-        >
-          {t('Редактировать')}
-        </Button>
-        : <>
-          <Button
-            theme={ThemeButton.OUTLINE_DANGER}
-            className={styles.editBtn}
-            onClick={onCancelEdit}
-          >
-            {commont('Отменить')}
-          </Button>
-          <Button
-            theme={ThemeButton.OUTLINE}
-            className={styles.saveBtn}
-            onClick={onSave}
-          >
-            {commont('Сохранить')}
-          </Button>
+      {canEdit && (
+        <>
+          {readonly
+            ? <Button
+              theme={ThemeButton.OUTLINE}
+              className={styles.editBtn}
+              onClick={onEdit}
+            >
+              {t('Редактировать')}
+            </Button>
+            : <>
+              <Button
+                theme={ThemeButton.OUTLINE_DANGER}
+                className={styles.editBtn}
+                onClick={onCancelEdit}
+              >
+                {commont('Отменить')}
+              </Button>
+              <Button
+                theme={ThemeButton.OUTLINE}
+                className={styles.saveBtn}
+                onClick={onSave}
+              >
+                {commont('Сохранить')}
+              </Button>
+            </>
+          }
         </>
-      }
-
+      )}
     </div>
   );
 };
